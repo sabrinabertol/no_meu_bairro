@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
   before_action :set_neighbourhood, except: [:destroy]
   before_action :set_service, only: [:show, :update, :edit, :destroy]
@@ -65,4 +66,5 @@ class ServicesController < ApplicationController
   def set_service
     @service = Service.find(service_params)
   end
+  
 end
