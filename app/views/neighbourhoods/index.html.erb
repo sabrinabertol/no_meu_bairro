@@ -1,2 +1,6 @@
-<h1>Neighbourhoods#index</h1>
-<p>Find me in app/views/neighbourhoods/index.html.erb</p>
+
+  <% @neighbourhoods.each do |neighbourhood| %>
+      <%= link_to neighbourhood_services_path(neighbourhood) do %>
+        <p><%= neighbourhood.name %></p>
+      <% end %>
+  <% end %>
