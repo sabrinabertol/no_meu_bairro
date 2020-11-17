@@ -7,12 +7,12 @@ response = RestClient.get('https://services.arcgis.com/1dSrzEWVQn5kHHyK/ArcGIS/r
 json = JSON.parse(response, symbolize_names: true)
 
 
-json[:properties].each do |neighbourhood|
-  name = properties[:name]
+json[:features].each do |feature|
+  name = feature[:properties]
 
-  puts "+ #{name}"
+  puts "+ #{name[:NOME]}"
 
-  Neighbourhood.create!(name: name)
+  Neighbourhood.create!(name: "#{name[:NOME]}")
 end
 
 puts "Done"
