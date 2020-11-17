@@ -1,5 +1,7 @@
 class NeighbourhoodsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show], raise: false
+
   def index
-    @neighbourhood = Neighbourhood.all
+    @neighbourhoods = Neighbourhood.all
   end
 end
