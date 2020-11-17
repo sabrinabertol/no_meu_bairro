@@ -4,6 +4,12 @@
 <%= render 'reviews/new' %>
 <%= render 'reviews/show' %>
 
-<%= render 'favourites/new' %>
-<%#= render 'reviews/new' %>
+
+<%= render 'reviews/new' %>
 <%#= render 'reviews/show' %>
+
+
+
+<%= link_to 'DELETE', neighbourhood_service_path(neighbourhood_service), method: :delete, data: {
+          confirm: 'Are you sure?' } %>
+
