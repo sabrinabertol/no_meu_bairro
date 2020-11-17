@@ -1,6 +1,4 @@
 class FavouritesController < ApplicationController
-  acts_as_favoritable
-
   def index
     @favourites = Favourite.all
   end
