@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_171544) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "serviceowner"
     t.string "name"
-    t.bigint "neighbourhood_id", null: false
+    t.bigint "neighbourhood_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["neighbourhood_id"], name: "index_users_on_neighbourhood_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
