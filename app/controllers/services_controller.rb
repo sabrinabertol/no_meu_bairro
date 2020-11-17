@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-
+  # acts_as_favoritable
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
   before_action :set_neighbourhood, except: [:destroy]
   before_action :set_service, only: [:show, :update, :edit, :destroy]
@@ -56,7 +56,7 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:name, :phone, :address, :socialmedia, :time, photo: [])
+    params.require(:service).permit(:name, :phone, :address, :socialmedia, :time, photos: [])
   end
 
   def set_neighbourhood

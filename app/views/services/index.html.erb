@@ -1,7 +1,7 @@
 <h1>Services#index</h1>
 
 <% @services.each do |service| %>
-  <%= link_to service_path(service) do %>
+  <%= link_to neighbourhood_service_path(service) do %>
     <%= service.name %>
   <% end %>
 <% end %>
