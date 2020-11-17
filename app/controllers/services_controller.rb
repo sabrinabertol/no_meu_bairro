@@ -66,5 +66,4 @@ class ServicesController < ApplicationController
   def set_service
     @service = Service.find(service_params)
   end
-
 end

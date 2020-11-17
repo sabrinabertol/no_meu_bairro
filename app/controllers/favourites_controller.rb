@@ -1,4 +1,8 @@
 class FavouritesController < ApplicationController
+  def index
+    @favourites = Favourite.all
+  end
+
   def new
     @favourite = Favourite.new
   end
@@ -11,7 +15,7 @@ class FavouritesController < ApplicationController
     if @favourite.save
       redirect_to service_path(@service)
     else
-      render '???'
+      render 'services/show'
     end
   end
 
