@@ -14,7 +14,9 @@
                 hint:"leave it blank if you don't want to change it",
                 required: false,
                 input_html: {autocomplete: "Do You wanto to change your name?"} %>
-    <%=# f.association :bairro, collection: Neighbourhood.ordered %>
+
+    <%= f.association :neighbourhood %>
+
     <%= f.input :photo, as: :file,
                 required: false,
                 input_html: {autocomplete: "add a picture"} %>
