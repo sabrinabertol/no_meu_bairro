@@ -34,6 +34,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'rest-client'
+gem 'acts_as_favoritor'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
