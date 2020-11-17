@@ -1,5 +1,4 @@
-class ServicesController < ApplicationController
-
+class PostsController < ApplicationController
   def index
   end
 
@@ -15,9 +14,6 @@ class ServicesController < ApplicationController
   def edit
   end
 
-  def update
-  end
   def destroy
   end
-  
 end

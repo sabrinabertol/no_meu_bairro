@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
   resources :neighbourhoods, only: [:index, :show] do
@@ -9,4 +10,3 @@ Rails.application.routes.draw do
     resources :news, only: [:index]
     resources :posts
   end
-end
