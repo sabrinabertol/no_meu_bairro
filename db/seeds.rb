@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroying everything..."
+Neighbourhood.destroy_all
+
+puts "Creating Neighbourhoods from the remote URL..."
+
+response = RestClient.get('https://services.arcgis.com/1dSrzEWVQn5kHHyK/ArcGIS/rest/services/Limites_Cartografia/FeatureServer/1/query?where=1%3D1&outFields=*&f=pgeojson')
+json = JSON.parse(response, symbolize_names: true)
+
+
+json[:properties].each do |neighbourhood|
+  name = properties[:name]
+
+  puts "+ #{name}"
+
+  Neighbourhood.create!(name: name)
+end
+
+puts "Done"
+

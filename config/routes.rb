@@ -10,3 +10,4 @@ Rails.application.routes.draw do
     resources :news, only: [:index]
     resources :posts
   end
+end
