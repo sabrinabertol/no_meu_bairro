@@ -60,11 +60,10 @@ class ServicesController < ApplicationController
   end
 
   def set_neighbourhood
-    @neighbourhood = Neighbourhood.find(params[:id])
+    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 
   def set_service
     @service = Service.find(service_params)
   end
-  
 end
