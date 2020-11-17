@@ -1,0 +1,6 @@
+
+<% @service.reviews.each do |review| %>
+  <%= review.user.name %>
+  <%= review.content %>
+  <%= review.rating %>
+<% end %>

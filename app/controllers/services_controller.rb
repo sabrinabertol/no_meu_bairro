@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
     # @markers = @services.geocoded.map do |service|
     #   {
     #     lat: service.latitude,
@@ -17,8 +18,8 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @favourite = Favourite.new
-    @review = Review.new
+    # @favourite = Favourite.new
+    # @review = Review.new
     # @markers =
     #   [{
     #     lat: @service.latitude,
@@ -55,16 +56,16 @@ class ServicesController < ApplicationController
 
   private
 
-  def service_params
-    params.require(:service).permit(:name, :phone, :address, :socialmedia, :time, photo: [])
-  end
+  # def service_params
+  #   params.require(:service).permit(:name)
+  # end
 
   def set_neighbourhood
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 
   def set_service
-    @service = Service.find(service_params)
+    @service = Service.find(params[:id])
   end
 
 end

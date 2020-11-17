@@ -1,43 +1,27 @@
 class ReviewsController < ApplicationController
+  before_action :set_service
+
   def new
-
+    @review = Review.new
   end
 
   def create
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-end
-
-
-def new
-    @favourite = Favourite.new
-  end
-
-  def create
-    @service = Service.find(params[:service_id])
-    @favourite = Favourite.new(favourite_params)
-    @favourite.service = @service
-    @favourite.user = current_user
-    if @favourite.save
-      redirect_to service_path(@service)
+    @review = Review.new(review_params)
+    @review.service = @service
+    @review.user = current_user
+    if @review.save
+      redirect_to neighbourhood_service_path(@service), notice: 'your review was created!'
     else
-      render '???'
-    end
-  end
-
-  def destroy
-    @favourite = Favourite.find(params[:id])
-    @favourite.destroy
-    redirect_to service_path(@service.service)
+      redirect_to neighbourhood_services_path, notice: 'something went wrong!'
   end
 
   private
 
-  def favourite_params
-    params.permit(:service_id)
+  def review_params
+    params.require(:review).permit(:rating, :content)
   end
+
+   def set_service
+    @service = Service.find(params[:session_id])
+  end
+end
