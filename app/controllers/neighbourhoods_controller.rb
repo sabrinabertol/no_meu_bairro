@@ -3,5 +3,7 @@ class NeighbourhoodsController < ApplicationController
 
   def index
     @neighbourhoods = Neighbourhood.all
+    @neighbourhood = Neighbourhood.new
+    @neighbourhoods_names = @neighbourhoods.pluck(:name)
   end
 end

@@ -1,16 +1,23 @@
 
 <%= @service.name  %>
 
-<% if @service.photos.attached?%>
-  <% @service.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+<div>
+<% if @service.photo.attached?%>
+  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+</div>
+
+
+<% if current_user = @service.user %>
+  <%= link_to edit_neighbourhood_service_path(@service) do %>
+    <p>Edit Service</p>
+  <% end %>
+  <%= link_to "Delete service",
+              neighbourhood_service_path(@service),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+  <% end  %>
 
 
 <%= render 'reviews/show' %>
 <%= render 'reviews/new' %>
-
-<%#= render 'reviews/new' %>
-<%#= render 'reviews/show' %>
-

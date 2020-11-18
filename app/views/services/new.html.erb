@@ -3,11 +3,12 @@
 
 <%= simple_form_for [@neighbourhood, @service] do |f| %>
   <%= f.input :name %>
-  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :address, html: { id: :service_address } %>
+  <%#= f.association :neighbourhood %>
   <%= f.input :phone %>
   <%= f.input :opentime %>
   <%= f.input :closetime %>
   <%= f.input :website %>
-  <%= f.input :photos, as: :file %>
   <%= f.submit %>
 <% end %>
