@@ -14,6 +14,13 @@
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
 
+            <%= f.input :name,
+                        hint:"leave it blank if you don't want to change it",
+                        required: false,
+                        input_html: {autocomplete: "Do You wanto to change your name?"} %>
+            <%= f.input :photo, as: :file,
+                        required: false,
+                        input_html: { autocomplete: "add a picture" } %>
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
@@ -41,5 +48,5 @@
       </div>
     </div>
   </div>
-</div>    
+</div>
 
