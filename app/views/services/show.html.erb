@@ -1,9 +1,14 @@
 
 <%= @service.name  %>
 
+<% if @service.photos.attached?%>
+  <% @service.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>
+
 <%= render 'reviews/new' %>
 <%= render 'reviews/show' %>
 
-<%= render 'favourites/new' %>
 <%#= render 'reviews/new' %>
 <%#= render 'reviews/show' %>
