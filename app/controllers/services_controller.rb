@@ -5,51 +5,37 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      
-        # sql_query = " \ Postgres multiple search
-        # movies.title @@ :query \
-        # OR movies.syllabus @@ :query \
-        # OR directors.first_name @@ :query \
-        # OR directors.last_name @@ :query \
-      # "
-      # sql_query = " \  Multiple search + Association search
-      #   movies.title ILIKE :query \
-      #   OR movies.syllabus ILIKE :query \
-      #   OR directors.first_name ILIKE :query \
-      #   OR directors.last_name ILIKE :query \
-      # "
-      #sql_query = "title ILIKE :query OR syllabus ILIKE :query" multiple seach in syllabus and title
-      #@movies = Movie.where(title: params[:query]) exact match
-      #@movies = Movie.where("title ILIKE ?", "%#{params[:query]}") exact match but case insensitive
-      #@movies = Movie.where(sql_query, query:  "%#{params[:query]}%" ) multiple seach in syllabus and title
-      # @movies = Movie.joins(:director).where(sql_query, query:  "%#{params[:query]}%" )
       @services = Service.search_by_name(params[:query])
-      # @movies = Movie.global_search(params[:query])
-      # @results = PgSearch.multisearch(params[:query]) carefull with this one!
-
+      @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
+        image_url: helpers.asset_url('location.png')
+       }
+      end
     else
       @services = Service.all
+      @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
+        image_url: helpers.asset_url('location.png')
+       }
+      end
     end
-    
-    # @markers = @services.geocoded.map do |service|
-    #   {
-        # lat: service.latitude,
-    #     lng: service.longitude,
-    #     infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
-    #     image_url: helpers.asset_url('???')
-    #   }
-    # end
   end
 
   def show
     @service.neighbourhood = @neighbourhood
     # @favourite = Favourite.new
-    # @review = Review.new
-    # @markers =
-    #   [{
-    #     lat: @service.latitude,
-    #     lng: @service.longitude
-    #   }]
+    @review = Review.new
+    @markers =
+      [{
+        lat: @service.latitude,
+        lng: @service.longitude
+      }]
   end
 
   def new
