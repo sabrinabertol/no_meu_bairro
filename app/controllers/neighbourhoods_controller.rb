@@ -6,4 +6,8 @@ class NeighbourhoodsController < ApplicationController
     @neighbourhood = Neighbourhood.new
     @neighbourhoods_names = @neighbourhoods.pluck(:name)
   end
+
+  def show
+    @neighbourhood = Neighbourhood.find(params[:id])
+  end
 end

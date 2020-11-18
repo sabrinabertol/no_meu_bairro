@@ -1,14 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
 <h1>Services#index</h1>
+      <% @services.each do |service| %>
+        <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+          <%= service.name %>
+        <% end %>
+      <% end %>
+      <%# </div> %>
+      </div>
+    </div>
+  </div>
 
-<% @services.each do |service| %>
-  <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-    <%= service.name %>
-  <% end %>
-<% end %>
-
-<%= link_to new_neighbourhood_service_path do %>
+<%#= link_to new_neighbourhood_service_path do %>
   <button type="button" class="btn btn-success">Add your service!</button>
-<% end %>
+<%# end %>
 
 <div id="map"
      style="width: 100%; height: 600px;"

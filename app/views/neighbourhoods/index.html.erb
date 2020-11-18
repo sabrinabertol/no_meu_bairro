@@ -1,7 +1,8 @@
 
   <% @neighbourhoods.each do |neighbourhood| %>
-      <%= link_to neighbourhood_services_path(neighbourhood) do %>
-        <p><%= neighbourhood.name %></p>
-      <% end %>
+      <%# <%= link_to neighbourhood_services_path(neighbourhood) do %>
+        <%# <p><%= neighbourhood.name %>
+      <%# <% end %>
+      <%= link_to "#{neighbourhood.name}", neighbourhood_path(neighbourhood)%>
   <% end %>
 
