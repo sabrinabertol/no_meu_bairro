@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
-  before_action :set_neighbourhood, except: [:destroy]
-  before_action :set_service, only: [:show, :update, :edit, :destroy, :favourite, :unfavourite]
+  before_action :set_neighbourhood
+  before_action :set_service, only: [:show, :update, :edit, :destroy]
 
   def index
     @services = Service.all
@@ -31,9 +31,11 @@ class ServicesController < ApplicationController
   end
 
   def create
+    @service = Service.new(service_params)
     @service.user = current_user
+    @service.neighbourhood = @neighbourhood
     if @service.save
-      redirect_to neighbourhood_service_path(@service), notice: "The service #{@service.name} was created successfully!"
+      redirect_to neighbourhood_service_path(@neighbourhood, @service), notice: "The service #{@service.name} was created successfully!"
     else
       render :new
     end
@@ -43,9 +45,10 @@ class ServicesController < ApplicationController
   end
 
   def update
+    @service.neighbourhood = @neighbourhood
     @service.update(service_params)
     @service.save
-    redirect_to neighbourhood_service_path(@service.id)
+    redirect_to neighbourhood_service_path(@neighbourhood, @service.id)
   end
 
   def destroy
@@ -57,7 +60,7 @@ class ServicesController < ApplicationController
 
   def service_params
     params.require(:service).permit(
-      :name, :neighbourhood_id, :user_id, :address, :phone, :time, :socialmedia, :latitude, :longitude, photos: []
+      :name, :address, :phone, :opentime, :closetime, :category, :latitude, :longitude, :photo, :website, :weekdays
     )
   end
 
