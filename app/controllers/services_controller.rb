@@ -6,14 +6,14 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
-    # @markers = @services.geocoded.map do |service|
-    #   {
-    #     lat: service.latitude,
-    #     lng: service.longitude,
-    #     infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
-    #     image_url: helpers.asset_url('???')
-    #   }
-    # end
+     @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
+        image_url: helpers.asset_url('location.png')
+       }
+    end
   end
 
   def show
