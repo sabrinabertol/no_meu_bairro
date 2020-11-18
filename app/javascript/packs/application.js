@@ -21,14 +21,25 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+// MAPBOX FROM GeoCoding Lecture.
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete'
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+  initAutocomplete();
+})
 
 // External imports
 import "bootstrap";
+import "jquery-bar-rating";
+import { initStarRating } from '../plugins/init_star_rating';
+
+;
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  initStarRating()
 });
