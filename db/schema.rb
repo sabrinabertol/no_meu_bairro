@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_114128) do
+ActiveRecord::Schema.define(version: 2020_11_18_134911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_114128) do
     t.string "name"
     t.time "closetime"
     t.datetime "weekdays"
+    t.string "category"
     t.index ["neighbourhood_id"], name: "index_services_on_neighbourhood_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
