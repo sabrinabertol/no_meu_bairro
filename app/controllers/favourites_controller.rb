@@ -13,7 +13,7 @@ class FavouritesController < ApplicationController
   #   @favourite.service = @service
   #   @favourite.user = current_user
   #   if @favourite.save
-  #     redirect_to service_path(@service)
+  #     redirect_to neighbourhood_service_path(@service)
   #   else
   #     render 'services/show'
   #   end
@@ -22,7 +22,7 @@ class FavouritesController < ApplicationController
   # def destroy
   #   @favourite = Favourite.find(params[:id])
   #   @favourite.destroy
-  #   redirect_to service_path(@service.service)
+  #   redirect_to neighbourhood_service_path(@service.service)
   # end
 
   # private

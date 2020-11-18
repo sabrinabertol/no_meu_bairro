@@ -1,2 +1,12 @@
 <h1>Services#edit</h1>
 <p>Find me in app/views/services/edit.html.erb</p>
+
+<%= simple_form_for [@neighbourhood, @service] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone %>
+  <%= f.input :time %>
+  <%= f.input :socialmedia %>
+  <%= f.input :photos, as: :file %>
+  <%= f.submit %>
+<% end %>

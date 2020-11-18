@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_171544) do
+ActiveRecord::Schema.define(version: 2020_11_18_114128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_171544) do
   create_table "services", force: :cascade do |t|
     t.string "address"
     t.integer "phone"
-    t.time "time"
-    t.string "socialmedia"
+    t.time "opentime"
+    t.string "website"
     t.float "latitude"
     t.float "longitude"
     t.bigint "neighbourhood_id", null: false
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_171544) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.time "closetime"
+    t.datetime "weekdays"
     t.index ["neighbourhood_id"], name: "index_services_on_neighbourhood_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
@@ -126,7 +128,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_171544) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "serviceowner"
     t.string "name"
-    t.bigint "neighbourhood_id"
+    t.bigint "neighbourhood_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["neighbourhood_id"], name: "index_users_on_neighbourhood_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
