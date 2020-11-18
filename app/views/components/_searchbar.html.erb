@@ -1,0 +1,4 @@
+<div class="form-inline">
+<%= form_tag neighbourhood_service_path(@neighbourhood), method: :get %>
+<%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Find your service' %><%= submit_tag "Search for a service", class: 'btn btn-primary' %>
+</div>

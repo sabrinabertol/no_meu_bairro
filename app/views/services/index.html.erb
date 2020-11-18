@@ -1,7 +1,18 @@
-<h1>Services#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+      <%# <div id="services"> %>
 
-<% @services.each do |service| %>
-  <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-    <%= service.name %>
-  <% end %>
-<% end %>
+<h1>Services#index</h1>
+      <% @services.each do |service| %>
+        <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+          <%= service.name %>
+        <% end %>
+      <% end %>
+      <%# </div> %>
+
+      </div>
+    </div>
+  </div>
+</div>

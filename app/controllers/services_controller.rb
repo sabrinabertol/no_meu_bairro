@@ -5,11 +5,36 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :update, :edit, :destroy]
 
   def index
-    @services = Service.all
-    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
+    if params[:query].present?
+      
+        # sql_query = " \ Postgres multiple search
+        # movies.title @@ :query \
+        # OR movies.syllabus @@ :query \
+        # OR directors.first_name @@ :query \
+        # OR directors.last_name @@ :query \
+      # "
+      # sql_query = " \  Multiple search + Association search
+      #   movies.title ILIKE :query \
+      #   OR movies.syllabus ILIKE :query \
+      #   OR directors.first_name ILIKE :query \
+      #   OR directors.last_name ILIKE :query \
+      # "
+      #sql_query = "title ILIKE :query OR syllabus ILIKE :query" multiple seach in syllabus and title
+      #@movies = Movie.where(title: params[:query]) exact match
+      #@movies = Movie.where("title ILIKE ?", "%#{params[:query]}") exact match but case insensitive
+      #@movies = Movie.where(sql_query, query:  "%#{params[:query]}%" ) multiple seach in syllabus and title
+      # @movies = Movie.joins(:director).where(sql_query, query:  "%#{params[:query]}%" )
+      @services = Service.search_by_name(params[:query])
+      # @movies = Movie.global_search(params[:query])
+      # @results = PgSearch.multisearch(params[:query]) carefull with this one!
+
+    else
+      @services = Service.all
+    end
+    
     # @markers = @services.geocoded.map do |service|
     #   {
-    #     lat: service.latitude,
+        # lat: service.latitude,
     #     lng: service.longitude,
     #     infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
     #     image_url: helpers.asset_url('???')
@@ -18,6 +43,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @service.neighbourhood = @neighbourhood
     # @favourite = Favourite.new
     # @review = Review.new
     # @markers =
@@ -32,9 +58,10 @@ class ServicesController < ApplicationController
   end
 
   def create
+    @service.neighbourhood = @neighbourhood
     @service.user = current_user
     if @service.save
-      redirect_to service_path(@service), notice: "The service #{@service.name} was created successfully!"
+      redirect_to neighbourhood_service_path(@neighbourhood.id, @service.id), notice: "The service #{@service.name} was created successfully!"
     else
       render :new
     end
@@ -56,9 +83,9 @@ class ServicesController < ApplicationController
 
   private
 
-  # def service_params
-  #   params.require(:service).permit(:name)
-  # end
+  def service_params
+    params.require(:service).permit(:name, :address, :time, :opentime, :closetime, :category)
+  end
 
   def set_neighbourhood
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])

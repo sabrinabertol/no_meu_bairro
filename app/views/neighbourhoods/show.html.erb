@@ -1,0 +1,6 @@
+<%= @neighbourhood.name %>
+<% @neighbourhood.services.each do |service| %>
+<p><%= service.name %></p>
+<% end %>
+
+<%= render "components/searchbar" %>
