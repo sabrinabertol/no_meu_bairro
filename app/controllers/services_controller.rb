@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      @services = Service.search_by_name(params[:query])
+      @services = Service.search_by_name_and_category(params[:query])
       @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
