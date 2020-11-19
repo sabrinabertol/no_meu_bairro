@@ -6,6 +6,14 @@ class ServicesController < ApplicationController
   def index
     if params[:query].present?
       @services = Service.search_by_name(params[:query])
+      @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
+        image_url: helpers.asset_url('location.png')
+       }
+      end
     else
       @services = Service.all
     end

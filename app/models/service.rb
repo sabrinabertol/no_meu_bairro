@@ -1,4 +1,4 @@
-#require 'pg_search'
+# require 'pg_search'
 
 class Service < ApplicationRecord
 
@@ -9,10 +9,12 @@ class Service < ApplicationRecord
   has_many :reviews
   has_many :favourites
   has_one_attached :photo
+
   include PgSearch::Model
   pg_search_scope :search_by_name,
     against: [ :name ],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
 end
