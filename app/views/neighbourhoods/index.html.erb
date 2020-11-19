@@ -1,7 +1,13 @@
 
   <% @neighbourhoods.each do |neighbourhood| %>
-      <%# <%= link_to neighbourhood_services_path(neighbourhood) do %>
-        <%# <p><%= neighbourhood.name %>
-      <%# <% end %>
-      <%= link_to "#{neighbourhood.name}", neighbourhood_path(neighbourhood)%>
+    <p><%= link_to "#{neighbourhood.name}", neighbourhood_path(neighbourhood)%></p>
   <% end %>
+
+  <%= simple_form_for @neighbourhood do |f| %>
+    <%= f.input :name, collection: @neighbourhoods_names %>
+    <%= f.submit %>
+  <% end %>
+
+
+
+<button id="sweet-alert" class="btn btn-primary">Click me!</button>

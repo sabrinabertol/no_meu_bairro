@@ -39,5 +39,5 @@ json_services[:features].each do |feature|
   end
 end
 puts " services OK"
-puts "Creating Users"
-puts "Creating Services"
+
+
