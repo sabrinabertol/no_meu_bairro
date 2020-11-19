@@ -1,4 +1,7 @@
-<div class="container mt-3">
+
+<%= render 'shared/navbar' %>
+
+<div class="container">
 				  <% @neighbourhood.services.each do |service| %>
 	<div class="card-trip mb-4 mt-4">
 
@@ -6,14 +9,14 @@
 	    <div>
 
 			  <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-			    <h2> <%= service.name %> </h2>	
+			    <h2> <%= service.name %> </h2>
 			  <p> <%= service.category %></p>
 			  	<% end %>
-      
+
 			</div>
 		</div>
 	</div>
-			<% end %>	
+			<% end %>
 </div>
 
 
@@ -33,5 +36,5 @@
 		     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 		</div>
 	</div>
-</div>
+
 
