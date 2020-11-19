@@ -5,8 +5,7 @@ class ServicesController < ApplicationController
 
   def index
     if params[:query].present?
-      @services = Service.search_by_name(params[:query])
-    
+      @services = Service.search_by_name_and_category(params[:query])
       @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
@@ -17,26 +16,26 @@ class ServicesController < ApplicationController
       end
     else
       @services = Service.all
-      @markers = @services.geocoded.map do |service|
+    end
+    @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
         lng: service.longitude,
         infoWindow:render_to_string(partial: "info_window", locals: { service: service }),
         image_url: helpers.asset_url('location.png')
-       }
-      end
+      }
     end
   end
 
-  def show
-    @service.neighbourhood = @neighbourhood
+def show
+  @service.neighbourhood = @neighbourhood
     # @favourite = Favourite.new
     @review = Review.new
     @markers =
-      [{
-        lat: @service.latitude,
-        lng: @service.longitude
-      }]
+    [{
+      lat: @service.latitude,
+      lng: @service.longitude
+    }]
   end
 
   def new
@@ -74,7 +73,7 @@ class ServicesController < ApplicationController
   def service_params
     params.require(:service).permit(
       :name, :address, :phone, :opentime, :closetime, :category, :latitude, :longitude, :photo, :website, :weekdays
-    )
+      )
   end
 
   def set_neighbourhood

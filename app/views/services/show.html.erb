@@ -1,28 +1,34 @@
+<div class="container">
+  <div class="text-center mt-5">
+     
+    <%= @service.name  %>
 
-<%= @service.name  %>
-
-<div>
-<% if @service.photo.attached?%>
-  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-</div>
+    <div>
+    <% if @service.photo.attached?%>
+      <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+    </div>
 
 
-<% if current_user == @service.user %>
-  <%= link_to edit_neighbourhood_service_path(@service) do %>
-    <p>Edit Service</p>
-  <% end %>
-  <%= link_to "Delete service",
-              neighbourhood_service_path(@service),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-  <% end  %>
+    <% if current_user == @service.user %>
+      <%= link_to edit_neighbourhood_service_path(@service) do %>
+        <p>Edit Service</p>
+      <% end %>
+      <%= link_to "Delete service",
+                  neighbourhood_service_path(@service),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+      <% end  %>
 
-<%= render 'reviews/show' %>
-<%= render 'reviews/new' %>
+    <%= render 'reviews/show' %>
+    <%= render 'reviews/new' %>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      
+    <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+  </div>
 </div>
