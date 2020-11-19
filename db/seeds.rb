@@ -22,8 +22,8 @@ json_services[:features].each do |feature|
     Service.create!(name: "#{service[:NOME]}",
                           address:"#{service[:MORADA]}, #{service[:NUM_POLICIA]}, #{service[:COD_POST_4]}-#{service[:COD_POST_3]} ",
                           phone: 0000000,
-                          latitude:"#{geo[:x]}",
-                          longitude:"#{geo[:y]}",
+                          latitude:"#{geo[:y]}",
+                          longitude:"#{geo[:x]}",
                           neighbourhood: Neighbourhood.find_by(name:"Campolide"),
                           category:"#{service[:TIPO]}",
                           user: User.first
@@ -39,5 +39,4 @@ json_services[:features].each do |feature|
   end
 end
 puts " services OK"
-puts "Creating Users"
-puts "Creating Services"
+
