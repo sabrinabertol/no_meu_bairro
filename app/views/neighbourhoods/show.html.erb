@@ -5,18 +5,25 @@
   <div class="mt-5 mb-5">
     <%= render "components/searchbar" %>
   </div>
-  <% @neighbourhood.services.each do |service| %>
+  
+ <% @services.each do |service| %>
     <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-    	<div class="card-trip m-2">
-    	  <div class="card-trip-infos">
-    	    <div>
-    			 <h2> <%= service.name %> </h2>
-    			  <p> <%= service.category %></p>
-    			</div>
-    		</div>
-    	</div>
+      <div class="card-product mb-3">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2> <%= service.name %> </h2>
+              <p> <%= service.category %> </p>
+          </div>
+      </div>
     <% end %>
   <% end %>
+</div>
+
+
+
+
+
+  
   <div class="text-center">
     <%= link_to new_neighbourhood_service_path(@neighbourhood) do %>
       <button type="button" class="btn btn-primary mt-5">Add your service!</button>

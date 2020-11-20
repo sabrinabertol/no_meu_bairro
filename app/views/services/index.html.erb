@@ -5,19 +5,22 @@
   <div class="mt-5 mb-5">
     <%= render "components/searchbar" %>
   </div>
+  
   <% @services.each do |service| %>
     <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-      <div class="card-trip m-2">
-        <div class="card-trip-infos">
-          <div>
-           <h2> <%= service.name %> </h2>
-            <p> <%= service.category %></p>
+      <div class="card-product mb-3">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2> <%= service.name %> </h2>
+              <p> <%= service.category %> </p>
           </div>
-        </div>
       </div>
     <% end %>
   <% end %>
 </div>
+  
+
+
 
 
 
