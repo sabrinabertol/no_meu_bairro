@@ -15,7 +15,7 @@
 
 
     <% if current_user == @service.user %>
-      <%= link_to edit_neighbourhood_service_path(@service) do %>
+      <%= link_to edit_neighbourhood_service_path(@neighbourhood, @service) do %>
         <p>Edit Service</p>
       <% end %>
       <%= link_to "Delete service",
