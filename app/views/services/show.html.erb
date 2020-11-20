@@ -4,12 +4,12 @@
     <h1><%= @service.name  %></h1>
     <h4><%= @service.address %></h4>
     <p style="color: #F6830F"><%= @service.category %></p>
-    <p class="mt-4 mt-5"><%= @service.description %></p>
+    <p class="mt-5"><%= @service.description %></p>
 
 
     <div>
     <% if @service.photo.attached?%>
-      <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @service.photo.key, height: 300, width: 300, crop: :fill %>
     <% end %>
     </div>
 
@@ -30,7 +30,7 @@
     <div class="mt-4">
     <%= render 'reviews/show' %>
     </div>
-
+    <%= link_to "Back", neighbourhood_path(@neighbourhood) %>
   </div>
 </div>
 
