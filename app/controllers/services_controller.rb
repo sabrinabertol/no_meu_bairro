@@ -72,7 +72,7 @@ def show
 
   def service_params
     params.require(:service).permit(
-      :name, :address, :phone, :opentime, :closetime, :category, :latitude, :longitude, :photo, :website, :weekdays
+      :name, :address, :phone, :opentime, :closetime, :category, :latitude, :longitude, :photo, :website, :weekdays, :description
       )
   end
 

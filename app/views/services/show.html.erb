@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="text-center mt-5">
+  <div class="mt-5">
 
-    <%= @service.name  %>
+    <h1><%= @service.name  %></h1>
+    <h4><%= @service.address %></h4>
+    <p style="color: #F6830F"><%= @service.category %></p>
+    <p class="mt-4 mt-5"><%= @service.description %></p>
+
 
     <div>
     <% if @service.photo.attached?%>
@@ -20,8 +24,12 @@
                   data: { confirm: "Are you sure?" } %>
       <% end  %>
 
+    <div class="mt-4">
+      <%= render 'reviews/new' %>
+    </div>
+    <div class="mt-4">
     <%= render 'reviews/show' %>
-    <%= render 'reviews/new' %>
+    </div>
 
   </div>
 </div>

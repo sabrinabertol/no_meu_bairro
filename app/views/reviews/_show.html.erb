@@ -1,6 +1,17 @@
 
-<% @service.reviews.each do |review| %>
-  <%= review.user.name %>
-  <%= review.content %>
-  <%= review.rating %>
-<% end %>
+
+
+
+<div class="mb-3">
+  <% @service.reviews.each do |review| %>
+    <div class="card-trip m-2">
+      <div class="card-trip-infos">
+        <div>
+         <h2><%= review.user.name %></h2>
+         <span class="badge badge-primary"><%= review.rating %></span>
+         <p><%= review.content %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
