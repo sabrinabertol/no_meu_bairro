@@ -3,25 +3,6 @@ require 'nokogiri'
 require 'net/http'
 require "pry-byebug"
 
-def cp_from(o_meu_bairro)
-
-  url = "https://codigopostal.ciberforma.pt/dir/lista/por-freguesia/#{o_meu_bairro}-concelho-de-lisboa/todas-as-categorias/#"
-
-  html_doc = Nokogiri::HTML(Net::HTTP.get(URI(url)))
-  cp_list = []
-
- 
-
-  html_doc.search('.list-unstyled.long-list').each do |element|
-    element.children.css('a').each do |cp|
-      cp_list << cp.text[0..7]
-     end
-    puts cp_list
-  end
-
-  puts cp_list 
-end
-
 
 def destroy()
   puts "Destroying everything..."
@@ -66,8 +47,10 @@ def create_neighbourhood()
   puts "...........Neighbourhoods ok"
 end
 
+# get an array in bairro and the correct name for find_by
+def create_services(bairro, name_ok)
 
-def create_services(ceplist, name)
+  puts "adding services to #{name_ok}... please wait"
 
   response_services = RestClient.get('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/RecenseamentoComercial/FeatureServer/13/query?where=1%3D1&outFields=*&outSR=4326&f=json')
   json_services = JSON.parse(response_services, symbolize_names: true)
@@ -75,14 +58,18 @@ def create_services(ceplist, name)
   json_services[:features].each do |feature|
     service = feature[:attributes]
     geo = feature[:geometry]
-    if service[:COD_POST_4] == "1070"
+
+    postal_code = "#{service[:COD_POST_4]}-#{service[:COD_POST_3]}"
+
+    if bairro.include? postal_code 
+
       puts "+ #{service[:NOME]} - #{service[:MORADA]}, #{service[:NUM_POLICIA]}, #{service[:COD_POST_4]}-#{service[:COD_POST_3]} => #{service[:TIPO]}"
       Service.create!(name: "#{service[:NOME]}",
                             address:"#{service[:MORADA]}, #{service[:NUM_POLICIA]}, #{service[:COD_POST_4]}-#{service[:COD_POST_3]} ",
                             phone: 0000000,
                             latitude:"#{geo[:y]}",
                             longitude:"#{geo[:x]}",
-                            neighbourhood: Neighbourhood.find_by(name:"Campolide"),
+                            neighbourhood: Neighbourhood.find_by(name: name_ok),
                             category:"#{service[:TIPO]}",
                             user: User.first
                             )
@@ -106,3 +93,88 @@ def create_reviews()
 
   puts "reviews ok"
 end
+
+# acept a string with format for nokogiri 
+# and the correct name for neighboord create 
+def o_meu_bairro(o_meu_bairro, name_ok)
+  puts "a obter os codigos postais do bairro #{name_ok} "
+
+  url = "https://codigopostal.ciberforma.pt/dir/lista/por-freguesia/#{o_meu_bairro}-concelho-de-lisboa/todas-as-categorias/#"
+
+  html_doc = Nokogiri::HTML(Net::HTTP.get(URI(url)))
+  cp_list = []
+
+ 
+
+  html_doc.search('.list-unstyled.long-list').each do |element|
+    element.children.css('a').each do |cp|
+      cp_list << cp.text[0..7]
+     end
+  end
+  
+  puts "codigos postais do #{o_meu_bairro} ok ! a criar serviços e reviews"
+
+  create_services(cp_list, name_ok)
+  
+end
+
+
+destroy()
+create_users()
+create_neighbourhood()
+
+# + Santo António 
+o_meu_bairro("santo-antonio","Santo António")
+# + Parque das Nações
+o_meu_bairro("parque-das-nacoes","Parque das Nações")
+# + Marvila
+o_meu_bairro("marvila","Marvila")
+# + Ajuda
+o_meu_bairro("ajuda","Ajuda")
+# + Areeiro
+o_meu_bairro("areeiro","Areeiro")
+# + Santa Maria Maior
+o_meu_bairro("santa-maria-maior","Santa Maria Maior")
+# + Alvalade
+o_meu_bairro("alvalade","Alvalade")
+# + Belém
+o_meu_bairro("belem","Belém")
+# + Estrela
+o_meu_bairro("estrela","Estrela")
+# + Arroios
+o_meu_bairro("arroios","Arroios")
+# + Santa Clara
+o_meu_bairro("santa-clara","Santa Clara")
+# + Avenidas Novas
+o_meu_bairro("avenidas-novas","Avenidas Novas")
+# + Carnide
+o_meu_bairro("carnide","Carnide")
+# + São Domingos de Benfica
+o_meu_bairro("sao-domingos-de-benfica","São Domingos de Benfica")
+# + Beato
+o_meu_bairro("beato","Beato")
+# + Campolide
+o_meu_bairro("campolide","Campolide")
+# + Alcântara
+o_meu_bairro("alcantara","Alcântara")
+# + Campo de Ourique
+o_meu_bairro("campo-de-ourique","Campo de Ourique")
+# + São Vicente
+o_meu_bairro("sao-vicente","São Vicente")
+# + Olivais
+o_meu_bairro("olivais","Olivais")
+# + Misericórdia
+o_meu_bairro("misericordia","Misericórdia")
+# + Lumiar
+o_meu_bairro("lumiar","Lumiar")
+# + Penha de França
+o_meu_bairro("penha-de-franca","Penha de França")
+# + Benfica
+o_meu_bairro("benfica","Benfica")
+
+o_meu_bairro("santo-antonio", "Santo António")
+
+o_meu_bairro("parque-das-nacoes", "Parque das Nações")
+
+o_meu_bairro("areeiro", "Areeiro")
+
