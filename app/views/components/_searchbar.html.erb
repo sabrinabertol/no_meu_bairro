@@ -1,11 +1,6 @@
-<div class="container">
-
 <div class="form-inline" id="autocomplete">
   <%= form_tag neighbourhood_services_path(@neighbourhood), method: :get %>
 </div>
-<div class="row align-items-center">
-  <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Ex: Farmácia' %><%= submit_tag "Find a service", class: 'btn btn-primary' %>
-</div>
-
-
+<div class="text-center">
+  <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Ex: Farmácia' %><%= submit_tag "Find a service", class: 'btn btn-primary btn-block mt-2' %>
 </div>

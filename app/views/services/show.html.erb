@@ -1,6 +1,6 @@
 <div class="container">
   <div class="text-center mt-5">
-     
+
     <%= @service.name  %>
 
     <div>
@@ -23,12 +23,31 @@
     <%= render 'reviews/show' %>
     <%= render 'reviews/new' %>
 
-      
+  </div>
+</div>
+
     <div id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-  </div>
-</div>
+
+
+<script>
+  function reloadPage() {
+  // The last "domLoading" Time //
+  var currentDocumentTimestamp =
+  new Date(performance.timing.domLoading).getTime();
+  // Current Time //
+  var now = Date.now();
+  // Ten Seconds //
+  var tenSec = 1000;
+  // Plus Ten Seconds //
+  var plusTenSec = currentDocumentTimestamp + tenSec;
+  if (now > plusTenSec) {
+  location.reload();
+  } else {}
+  }
+  reloadPage();
+</script>

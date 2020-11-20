@@ -1,29 +1,49 @@
+<%= render 'shared/navbar' %>
+
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-lg-6">
-      <div class="background-card">
-      
-        <h1 class="">Services#index</h1>
-              <% @services.each do |service| %>
-                <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-                    <%= service.name %>
-                  <% end %>
-              <% end %>
-      </div>
-    </div>
+  <div class="mt-4">
+    <h1><%= @neighbourhood.name %></h1>
   </div>
-  >div>
+  <div class="mt-5 mb-5">
+    <%= render "components/searchbar" %>
+  </div>
+  <% @services.each do |service| %>
+    <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+      <div class="card-trip m-2">
+        <div class="card-trip-infos">
+          <div>
+           <h2> <%= service.name %> </h2>
+            <p> <%= service.category %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 
-<%= render "components/searchbar" %>
 
 
-<%#= link_to new_neighbourhood_service_path do %>
-  <button type="button" class="btn btn-success">Add your service!</button>
-<%# end %>
-
-<div id="map"
+<div id="map" class="mt-5"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
+<script>
+  function reloadPage() {
+  // The last "domLoading" Time //
+  var currentDocumentTimestamp =
+  new Date(performance.timing.domLoading).getTime();
+  // Current Time //
+  var now = Date.now();
+  // Ten Seconds //
+  var tenSec = 1000;
+  // Plus Ten Seconds //
+  var plusTenSec = currentDocumentTimestamp + tenSec;
+  if (now > plusTenSec) {
+  location.reload();
+  } else {}
+  }
+  reloadPage();
+</script>

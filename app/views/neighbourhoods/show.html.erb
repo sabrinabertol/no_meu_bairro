@@ -2,39 +2,53 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
-				  <% @neighbourhood.services.each do |service| %>
-	<div class="card-trip mb-4 mt-4">
+  <div class="mt-4">
+  	<h1><%= @neighbourhood.name %></h1>
+  </div>
+  <div class="mt-5 mb-5">
+    <%= render "components/searchbar" %>
+  </div>
+  <% @neighbourhood.services.each do |service| %>
+    <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+    	<div class="card-trip m-2">
+    	  <div class="card-trip-infos">
+    	    <div>
+    			 <h2> <%= service.name %> </h2>
+    			  <p> <%= service.category %></p>
+    			</div>
+    		</div>
+    	</div>
+    <% end %>
+  <% end %>
+  <div class="text-center">
+    <%= link_to new_neighbourhood_service_path(@neighbourhood) do %>
+      <button type="button" class="btn btn-primary mt-5">Add your service!</button>
+    <% end %>
+  </div>
+</div>
 
-	  <div class="card-trip-infos">
-	    <div>
-
-			  <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-			    <h2> <%= service.name %> </h2>
-			  <p> <%= service.category %></p>
-			  	<% end %>
-
-			</div>
-		</div>
-	</div>
-			<% end %>
+<div id="map" class="mt-5"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 
-	<h1><%= @neighbourhood.name %></h1>
 
-
-
-
-<div class="container mt-3">
-	<%= render "components/searchbar" %>
-</div>
-
-	<div class="container mt-3">
-		<div id="map"
-		     style="width: 100%; height: 600px;"
-		     data-markers="<%= @markers.to_json %>"
-		     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-		</div>
-	</div>
-
-
+<script>
+  function reloadPage() {
+  // The last "domLoading" Time //
+  var currentDocumentTimestamp =
+  new Date(performance.timing.domLoading).getTime();
+  // Current Time //
+  var now = Date.now();
+  // Ten Seconds //
+  var tenSec = 1000;
+  // Plus Ten Seconds //
+  var plusTenSec = currentDocumentTimestamp + tenSec;
+  if (now > plusTenSec) {
+  location.reload();
+  } else {}
+  }
+  reloadPage();
+</script>
