@@ -3,7 +3,7 @@ class NeighbourhoodsController < ApplicationController
 
   def index
     if params[:neighbourhood].present?
-    @neighbourhoods = Neighbourhood.all.order(name: :asc)
+      @neighbourhoods = Neighbourhood.all.order(name: :asc)
       @neighbourhood = Neighbourhood.find(params[:neighbourhood][:id])
       redirect_to neighbourhood_path(@neighbourhood)
     end

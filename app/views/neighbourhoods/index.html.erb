@@ -8,7 +8,7 @@
 
               <div class="mt-4">
               <%= form_tag neighbourhoods_path(@neighbourhoods), method: :get %>
-              <%= collection_select :neighbourhood, :id, Neighbourhood.all, :id, :name %>
+              <%= collection_select :neighbourhood, :id, Neighbourhood.all.order(:name), :id, :name %>
 
               </div>
               <div class="mt-3">
