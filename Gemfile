@@ -47,6 +47,7 @@ gem 'acts_as_favoritor'
 gem 'open-uri'
 gem 'nokogiri'
 gem 'pry-byebug'
+gem 'haml', '~> 5.0', '>= 5.0.4'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
