@@ -6,9 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-      @review = Review.new(review_params)
-      @review.service = @service
-      @review.user = current_user
+    @review = Review.new(review_params)
+    @review.service = @service
+    @review.user = current_user
       if @review.save
         redirect_to neighbourhood_service_path(@neighbourhood, @service), notice: 'your review was created!'
       else
@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content)
   end
 
-   def set_service
+  def set_service
     @service = Service.find(params[:service_id])
   end
 
@@ -30,4 +30,3 @@ class ReviewsController < ApplicationController
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 end
-
