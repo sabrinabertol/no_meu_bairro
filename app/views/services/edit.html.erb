@@ -1,14 +1,32 @@
-<h1>Services#edit</h1>
-<p>Find me in app/views/services/edit.html.erb</p>
+<div class="masthead">
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-lg-6">
+          <div class="background-card">
+            <h2>Services#edit</h2>
+            <%= simple_form_for [@neighbourhood, @service] do |f| %>
+              <%= f.input :name %>
+              <%= f.input :address, html: { id: :service_address } %>
+              <%= f.input :description %>
+              <%= f.input :phone %>
+              <%= f.input :opentime %>
+              <%= f.input :closetime %>
+              <%= f.input :website %>
 
-<%= simple_form_for [@neighbourhood, @service] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :address, html: { id: :service_address } %>
-  <%= f.input :description %>
-  <%= f.input :phone %>
-  <%= f.input :opentime %>
-  <%= f.input :closetime %>
-  <%= f.input :website %>
-  <%= f.submit %>
-<% end %>
+            <div class="center-buttons">
+              <%= f.input :photo, as: :file,
+                          required: false,
+                          input_html: { class: 'd-none' },
+                          label_html: { class: 'btn btn-outline-primary mt-3' },
+                          label: 'Add photos to your service!' %>
+              <%= f.button :submit, "Update details", class: "btn btn-primary mt-5" %>
+            <% end %>
+
+            <button id="sweet-alert-demo" class="btn btn-outline-danger m-3">Delete <%= @service.name %></button>
+            <%= link_to "", neighbourhood_service_path(@service), method: :delete, id: "delete-link", class: "hidden" %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

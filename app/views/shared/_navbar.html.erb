@@ -1,41 +1,63 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <ul class="navbar-nav mr-auto">
-    <% if user_signed_in? %>
-
-
-      <% if current_user.photo.attached? %>
-      <li class="nav-item dropdown">
-        <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </li>
-
-      <% else %>
-      <li class="nav-item dropdown">
-        <%= cl_image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
+<!-- <div id="navbar" class="nav-container">
+  <%# if user_signed_in? %>
+    <ul class="nav nav-pills m-3">
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+         <i class="fas fa-bars" style="font-size: 30px"></i><span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu p-2">
+          <li><%#= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %></li>
+          <li><%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+        </ul>
       </li>
-      <li class="nav-item active">
-        <p class="nav-link"><%= current_user.name %></p>
+    </ul>
+  <%# else %>
+    <ul class="nav nav-pills m-3">
+      <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+         <i class="fas fa-bars" style="font-size: 30px"></i><span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu p-2">
+          <li><%#= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+          <li><%#= link_to "Register", new_user_registration_path, class: "dropdown-item" %></li>
+        </ul>
       </li>
-      <% end %>
+    </ul>
+  <%# end %>
+</div> -->
 
 
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
-      </li>
-    <% end %>
+<nav id="navbar" class="navbar nav-container">
+  <ul class="nav nav-pills">
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+       <i class="fas fa-bars" style="font-size: 30px"></i>
+      </a>
+      <ul class="dropdown-menu p-2">
+       <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Register", new_user_registration_path, class: "dropdown-item" %></li>
+      </ul>
+    </li>
   </ul>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  </div>
-</div>
+  <form class="form-inline">
+    <% if user_signed_in? %>
+      <% if current_user.photo.attached? %>
+        <li class="nav-item dropdown" style="list-style: none">
+          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item dropdown" style="list-style: none">
+          <%= cl_image_tag "logo-avatar2-02_kqleye.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </form>
+</nav>
