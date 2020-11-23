@@ -69,17 +69,6 @@ class ServicesController < ApplicationController
     redirect_to neighbourhood_services_path
   end
 
-  def favourite!
-    @service.neighbourhood = @neighbourhood
-    @neighbourhood.service.favourite = true
-    @service.save!
-  end
-
-  def unfavourite!
-    @service.neighbourhood = @neighbourhood
-    @neighbourhood.service.favourite = false
-    @service.save!
-  end
 
   private
 
