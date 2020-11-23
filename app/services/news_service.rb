@@ -13,8 +13,7 @@ class NewsService
                 url: "#{feature[:link]}",
                 title: "#{feature[:title][:rendered]}",
                 content: "#{feature[:description]} ",
-                photourl: "#{feature[:featured_media_large]}",
-                neighbourhood: Neighbourhood.find_by(name: "Alvalade")
+                photourl: "#{feature[:featured_media_large]}"
             )
         end
         return agenda
