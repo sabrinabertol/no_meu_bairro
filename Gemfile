@@ -38,10 +38,15 @@ gem 'dotenv-rails'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 gem 'pg_search', '~> 2.3.0'
+
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
 gem 'sweetalert2'
 gem 'acts_as_favoritor'
+
+gem 'open-uri'
+gem 'nokogiri'
+gem 'pry-byebug'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
