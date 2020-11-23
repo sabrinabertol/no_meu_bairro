@@ -1,0 +1,7 @@
+<h1>Edit your reply</h1>
+
+<%= simple_form_for([@neighbourhood, @post, @comment]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.submit %>
+
+  <% end %>

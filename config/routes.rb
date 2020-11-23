@@ -8,7 +8,11 @@ Rails.application.routes.draw do
       resources :reviews, only: [:new, :create, :edit, :destroy]
       resources :favourites, only: [:create, :destroy]
     end
-   
-    resources :posts
+    resources :posts do
+      resources :comments, except: [:destroy]
+    end
+  end
+  resources :posts, only: [] do
+    resources :comments, only: [:destroy]
   end
 end

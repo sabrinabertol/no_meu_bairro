@@ -1,0 +1,9 @@
+
+<div class="comment">
+  <p> <%= comment.comment %> </p>
+  <p> <%= comment.user.email %></p>
+
+  <%= link_to "Edit", edit_neighbourhood_post_comment_path(comment.post,comment) %>
+  <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+
+</div>
