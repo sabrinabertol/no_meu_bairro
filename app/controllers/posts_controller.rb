@@ -24,6 +24,7 @@ def create
 end
 
 def show
+ @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
 end
 
 def edit
@@ -48,9 +49,7 @@ def post_params
   params.require(:post).permit(:title, :content)
 end
 
-
 def find_post
   @post = Post.find(params[:id])
 end
-
 end
