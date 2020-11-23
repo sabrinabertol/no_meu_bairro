@@ -1,25 +1,41 @@
 <div class="container">
-  <div class="mt-4">
-    <h1><%= @neighbourhood.name %></h1>
-  </div>
-  <div class="mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-16 col-lg-6">
+    <h1 class="mt-4"><%= @neighbourhood.name %></h1>
     <%= render "components/searchbar" %>
-  </div>
-  
+
+
+<header class="scroll">
+  <nav>
+    <button class="btn-category ml-0"><i class="fas fa-utensils" style="font-size: 30px"></i><p>Restaurants</p></button>
+    <button class="btn-category-red"><i class="fas fa-store" style="font-size: 30px"></i><p>Retail</p></button>
+    <button class="btn-category-green"><i class="fas fa-landmark" style="font-size: 30px"></i><p>Landmarks</p></button>
+    <button class="btn-category"><i class="fas fa-utensils" style="font-size: 30px"></i><p>Restaurants</p></button>
+    <button class="btn-category-red"><i class="fas fa-store" style="font-size: 30px"></i><p>Retail</p></button>
+    <button class="btn-category-green"><i class="fas fa-landmark" style="font-size: 30px"></i><p>Landmarks</p></button>
+  </nav>
+</header>
+
+
   <% @services.each do |service| %>
     <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
       <div class="card-product mb-3">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if service.photo.attached? %>
+        <%= cl_image_tag service.photo.key %>
+        <% else %>
+        <img src="https://picsum.photos/120" />
+        <% end %>
           <div class="card-product-infos">
-            <h2> <%= service.name %> </h2>
-              <p> <%= service.category %> </p>
+            <h2><%= service.name %></h2>
+              <p><%= service.category %></p>
           </div>
       </div>
     <% end %>
   <% end %>
 </div>
-  
 
+    </div>
+  </div>
 
 
 
@@ -29,6 +45,7 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+<%= render 'components/footer' %>
 
 <script>
   function reloadPage() {
