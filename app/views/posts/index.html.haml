@@ -1,7 +1,7 @@
 %h1 Hi there! This is the Index Page.
 
 - @posts.each do |post|
- /%h2= link_to post.title, neighbourhood_post
+ %h2= link_to post.title, neighbourhood_post_path(@neighbourhood, post)
  %p
  Published at
  = time_ago_in_words(post.created_at)

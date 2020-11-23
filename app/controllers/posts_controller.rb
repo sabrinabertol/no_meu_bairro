@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order("created_at DESC")
+    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 
   def new
