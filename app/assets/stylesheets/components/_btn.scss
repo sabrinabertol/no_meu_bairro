@@ -3,6 +3,17 @@
   color: white;
   padding-left: 25px;
   padding-right: 25px;
+  min-width: 250px;
+  width: auto;
+  height: 50px;
+}
+
+.btn-block {
+  border-radius: 28px;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 50px;
 }
 
 .btn-outline-primary {
@@ -11,3 +22,101 @@
   border-color: #F6830F;
   background-color: white;
 }
+
+.btn-outline-danger {
+  color: #BB2205;
+  border-style: solid;
+  border-color: #BB2205;
+  background-color: white;
+}
+
+.btn-outline-primary:hover {
+  color: white;
+  background-color: #F6830F;
+}
+
+.btn-outline-danger:hover {
+  color: white;
+  background-color: #BB2205;
+}
+
+.btn-category {
+  height: 70px;
+  width: 120px;
+  border-radius: 5px;
+  color: #F6830F;
+  background-color: white;
+  text-align: center;
+  padding: auto;
+  font-size: 13px;
+  padding-top: 8px;
+  margin: 16px;
+  margin-right: 0;
+  margin-left: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-color: white;
+}
+
+.btn-category-red {
+  height: 70px;
+  width: 120px;
+  border-radius: 5px;
+  color: #BB2205;
+  background-color: white;
+  text-align: center;
+  padding: auto;
+  font-size: 13px;
+  padding-top: 8px;
+  margin: 16px;
+  margin-right: 0;
+  margin-left: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-color: white;
+}
+
+.btn-category-green {
+  height: 70px;
+  width: 120px;
+  border-radius: 5px;
+  color: #0E918C;
+  background-color: white;
+  text-align: center;
+  padding: auto;
+  font-size: 13px;
+  padding-top: 8px;
+  margin: 16px;
+  margin-right: 0;
+  margin-left: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-color: white;
+}
+
+
+.button-profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background-color: white;
+  color: #858585;
+  text-align: center;
+  font-size: 14px;
+  padding: 30px;
+  padding-top: 54px;
+}
+
+.center-buttons{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll {
+  white-space: nowrap; /* [1] */
+  overflow-x: auto; /* [2] */
+  -webkit-overflow-scrolling: touch; /* [3] */
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */ }
+
+/* [5] */
+.scroll::-webkit-scrollbar {
+  display: none; }
+

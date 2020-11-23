@@ -1,17 +1,29 @@
 
-
-
-
-<div class="mb-3">
+<div class="card-trip">
   <% @service.reviews.each do |review| %>
-    <div class="card-trip m-2">
-      <div class="card-trip-infos">
-        <div>
-         <h2><%= review.user.name %></h2>
-         <span class="badge badge-primary"><%= review.rating %></span>
-         <p><%= review.content %></p>
+    <div class="p-3 mb-3">
+      <% if review.user.photo.attached?  %>
+        <%= cl_image_tag review.user.photo.key, :class => "avatar mb-2" %>
+        <div class="d-flex justify-content-between mb-2">
+          <h2><%= review.user.name %></h2>
+          <div>
+            <% review.rating.to_i.times do  %>
+              <i style="color: #FAB703" class="fas fa-star"></i>
+            <% end %>
+          </div>
         </div>
-      </div>
+        <p><%= review.content %></p>
+      <% else  %>
+        <div class="d-flex justify-content-between mb-2">
+          <h2><%= review.user.name %></h2>
+            <% review.rating.to_i.times do  %>
+              <i style="color: #FAB703" class="fas fa-star"></i>
+            <% end %>
+          </div>
+        <p><%= review.content %></p>
+      <% end %>
     </div>
   <% end %>
 </div>
+
+

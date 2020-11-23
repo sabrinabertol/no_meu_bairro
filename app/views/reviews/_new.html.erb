@@ -1,16 +1,22 @@
-<div class="container">
-  <div class="background-card-reviews">
-    <% if user_signed_in? %>
-      <p><strong>Have you been to this service before? Leave a review!</strong></p>
-      <%= simple_form_for [@neighbourhood, @service, @review] do |f| %>
+<% if user_signed_in? %>
+  <div class="card-trip p-3">
+    <h2 class="p-2 text-center mt-3 mb-3">Have you been to this service before? Leave a review!</h2>
+    <%= simple_form_for [@neighbourhood, @service, @review] do |f| %>
+      <div class="p-2">
         <%= f.input :content %>
+      </div>
+      <div class="p-2">
         <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-        <%= f.submit %>
-        <% end %>
-    <% else %>
-      <%= link_to new_user_session_path do %>
-        <button type="button" class="btn btn-outline-primary mt-3 mb-3">Log in to leave a review!</button>
-      <% end %>
+      </div>
+      <div class="center-buttons p-3 mb-3">
+        <%= f.button :submit, "Create Review", class: "btn btn-primary mb-1" %>
+      </div>
     <% end %>
   </div>
-</div>
+<% else %>
+  <div class="center-buttons">
+    <%= link_to new_user_session_path do %>
+      <button type="button" class="btn btn-outline-primary mt-3 mb-3" style="width: 250px;">Log in to leave a review!</button>
+    <% end %>
+  </div>
+<% end %>
