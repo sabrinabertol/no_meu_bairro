@@ -8,7 +8,7 @@
 
           <%= simple_form_for [@neighbourhood, @service] do |f| %>
             <%= f.input :name %>
-            <%= f.input :photo, as: :file %>
+            <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn btn-primary'}, label: '📷 Upload a photo' %>
             <%= f.input :address, html: { id: :service_address } %>
             <%= f.input :description %>
             <%= f.input :phone %>

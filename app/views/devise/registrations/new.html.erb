@@ -19,14 +19,20 @@
                 <%= f.input :password_confirmation,
                             required: true,
                             input_html: { autocomplete: "new-password" } %>
-              </div>
-                <%= f.button :submit, "Register", class: "btn btn-primary mb-2" %>
-          <% end %>
+                <div class="center-buttons">
 
- <%= render "devise/shared/links" %>
-         </div>
+                  <%= f.button :submit, "Register", class: "btn btn-primary m-2" %>
+                </div>
+              </div>
+          <% end %>
+          <div class="center-buttons">
+            <%= render "devise/shared/links" %>
+            <div class="m-3"></div>
+            <%= link_to "Back", :back %>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 

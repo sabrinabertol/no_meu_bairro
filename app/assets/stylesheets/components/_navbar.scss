@@ -11,3 +11,18 @@
   width: 40px;
 }
 
+.nav-container{
+    width: auto;
+    height: 80px;
+    background: transparent;
+    border: solid 2px none;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#navbar{
+    position: relative;
+    margin: auto;
+ }
