@@ -6,30 +6,34 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
+    @post = Post.new
+    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 
-  def create
-    @post = current_user.posts.build(post_params)
-    if @post.save
-     redirect_to @post
-   else
+def create
+    @post = Post.new(post_params)
+    @post.user = current_user
+    @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
+    @post.neighbourhood = @neighbourhood
+  if @post.save
+     redirect_to neighbourhood_post_path(@neighbourhood, @post)
+  else
      render 'new'
-   end
- end
+  end
+end
 
- def show
- end
+def show
+end
 
- def edit
- end
+def edit
+end
 
- def update
+def update
   if @post.update(post_params)
    redirect_to @post
- else
+  else
    render 'edit'
- end
+  end
 end
 
 def destroy
@@ -42,8 +46,10 @@ private
 def post_params
   params.require(:post).permit(:title, :content)
 end
-end
+
 
 def find_post
   @post = Post.find(params[:id])
+end
+
 end

@@ -233,13 +233,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-<<<<<<< HEAD
-    temple (0.8.2)
-=======
     sweet-alert2-rails (0.1.0)
     sweetalert2 (7.25.6)
       railties (>= 3.1.0)
->>>>>>> b8a273ecf8abfdd8895ee9da82b07d3f96c9b30f
+    temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
