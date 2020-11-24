@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "No Meu Bairro"
+meta_title: "No Meu Bairro - Find services in your neighbourhood with one click!"
+meta_description: "Find services in your neighbourhood with one click!"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
