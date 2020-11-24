@@ -7,12 +7,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   end
 
 def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     @post.user = current_user
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
     @post.neighbourhood = @neighbourhood

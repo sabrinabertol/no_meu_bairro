@@ -37,13 +37,16 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
 import { toggle } from '../plugins/init_favourite';
-
+import { showMap } from '../plugins/show_map';
+import { showList } from '../plugins/show_list';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
   toggle();
+  showMap();
+  showList();
   previewImageOnFileSelect();
   initSweetalert('#sweet-alert', {
     title: "A nice alert",
@@ -61,7 +64,3 @@ document.addEventListener('turbolinks:load', () => {
     }
   });
 });
-
-
-
-

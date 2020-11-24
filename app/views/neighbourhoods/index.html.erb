@@ -1,18 +1,15 @@
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-            <h1 class="mx-auto my-0">no meu bairro</h1>
-            <h3 class="text-white-50 mx-auto mt-2 mb-3">Find services in your neighbourhood with one click!</h3>
-
-              <div class="mt-4">
-              <%= form_tag neighbourhoods_path(@neighbourhoods), method: :get %>
-              <%= collection_select :neighbourhood, :id, Neighbourhood.all.order(:name), :id, :name %>
-
-              </div>
-              <div class="mt-3">
-
-              <%= submit_tag "Select neighbourhood", class: 'btn btn-primary' %>
-              </div>
+      <div class="mx-auto text-center">
+        <div>
+          <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/LOGO_as2up7.svg", height: 250, crop: :fill) %>
         </div>
+        <h3 class="text-white-50 mx-auto mt-2 mb-3">Find services in your neighbourhood with one click!</h3>
+        <div class="mt-4">
+          <%= form_tag neighbourhoods_path(@neighbourhoods), method: :get %>
+          <%= collection_select :neighbourhood, :id, Neighbourhood.all.order(:name), :id, :name, {}, {  onchange: 'this.form.submit();' } %>
+        </div>
+      </div>
     </div>
+  </div>
 </header>
