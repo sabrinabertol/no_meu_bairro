@@ -1,26 +1,9 @@
 
-
-<div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-bordered" />
-  <div class="notification-content">
-    <p><small>14th January</small></p>
-    <p>Hi friends, I am new in the neighbourhood. I am looking for local personal trainer</p>
-  </div>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
 
 
-</div>
-
-<div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-bordered"/>
-  <div class="notification-content">
-    <p><small>9th January</small></p>
-    <p>Today I went to my local chippie and surprise... It's now a kebab shop. I'm shattered.</p>
-  </div>
-
-</div>
-
-----------------------------------------
-
+<div class="text-center"> <div class="newpost, btn btn-lg btn-secondary"> <%= link_to "New Post", new_neighbourhood_post_path %> </div></div>
 
 <% @posts.each do |post| %>
 <div class="notification">
@@ -41,8 +24,12 @@
 
 
 
-<%= link_to "New Post", new_neighbourhood_post_path %>
-<%= link_to "Home", root_path %>
+
+
+
+
+
+<div class="text-center"> <div class="newpost, btn btn-lg btn-secondary"> <%= link_to "Home", root_path %> </div></div>
 
 
 
@@ -57,4 +44,5 @@
     <a href="wwww.twitter.com/nomeubairro"><i class="fab fa-twitter"></i></a>
     <a href="www.linkedin.com/nomeubairro"><i class="fab fa-linkedin"></i></a>
   </div>
+</div>
 </div>

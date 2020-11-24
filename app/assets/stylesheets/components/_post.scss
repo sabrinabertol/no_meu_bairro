@@ -15,6 +15,7 @@
 .notification p {
   margin: 0;
   line-height: 1.4;
+  flex: right;
 }
 
 .notification small {
@@ -35,5 +36,10 @@
   color: #999999;
   margin-left: 16px;
   font-size: 14px;
+}
+
+.newpost {
+  display: flex;
+  position: relative;
 }
 
