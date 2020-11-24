@@ -40,7 +40,6 @@ import { toggle } from '../plugins/init_favourite';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
 
-
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
@@ -65,7 +64,3 @@ document.addEventListener('turbolinks:load', () => {
     }
   });
 });
-
-
-
-
