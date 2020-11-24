@@ -1,10 +1,12 @@
   <footer>
     <div>
       <ul ul class="list-inline">
-        <li><a href="#"><i class="fa fa-map-marker"></i></a></li>
-        <li><a href="#"><i class="fa fa-home"></i></a></li>
-        <li><a href="#"><i class="fas fa-city"></i></a></li>
-        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+        <%= link_to neighbourhood_path(@neighbourhood) do %>
+        <li><i class="fa fa-map-marker-alt"></i></li>
+        <% end %>
+        <li><i class="fa fa-home"></i></li>
+        <li><i class="fa fa-user"></i></li>
+        <li><i class="far fa-address-card"></i></li>
       </ul>
     </div>
   </footer>

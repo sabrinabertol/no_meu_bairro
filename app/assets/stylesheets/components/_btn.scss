@@ -3,9 +3,9 @@
   color: white;
   padding-left: 25px;
   padding-right: 25px;
-  min-width: 250px;
+  min-width: 150px;
   width: auto;
-  height: 50px;
+  height: 40px;
 }
 
 .btn-block {
@@ -96,6 +96,18 @@
   width: 150px;
   height: 150px;
   border-radius: 100%;
+  color: #858585;
+  background-color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 30px;
+  padding-top: 54px;
+}
+
+.button-profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
   background-color: white;
   color: #858585;
   text-align: center;
@@ -119,4 +131,5 @@
 /* [5] */
 .scroll::-webkit-scrollbar {
   display: none; }
+
 

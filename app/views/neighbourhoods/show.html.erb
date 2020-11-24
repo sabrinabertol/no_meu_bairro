@@ -22,7 +22,7 @@
  <% @services.each do |service| %>
     <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
       <div class="card-product mb-3">
-        <% if service.photo.attached? %>
+        <% if service.photos.attached? %>
                 <%= cl_image_tag service.photo.key %>
                 <% else %>
                 <img src="https://picsum.photos/120" />

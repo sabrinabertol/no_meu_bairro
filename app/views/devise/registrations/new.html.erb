@@ -1,4 +1,4 @@
-<div class="masthead">
+<div class="masthead-user">
   <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6">
@@ -19,16 +19,26 @@
                 <%= f.input :password_confirmation,
                             required: true,
                             input_html: { autocomplete: "new-password" } %>
+                <%#= f.association :neighbourhood,
+                                  collection: Neighbourhood.name.order(:name),
+                                  prompt: "Choose a neighbourhood!"  %>
                 <div class="center-buttons">
 
-                  <%= f.button :submit, "Register", class: "btn btn-primary m-2" %>
+                  <%= f.button :submit, "Register", class: "btn btn-primary mb-4" %>
                 </div>
               </div>
           <% end %>
           <div class="center-buttons">
-            <%= render "devise/shared/links" %>
-            <div class="m-3"></div>
-            <%= link_to "Back", :back %>
+            <p style="font-size: 14px">Already have an account?</p>
+            <%= link_to new_session_path(resource_name) do %>
+              <button type="button" class="btn btn-outline-primary">Log in</button>
+            <% end %>
+
+            <div class="mt-4 center-buttons">
+              <%= link_to neighbourhood_path(@neighbourhood) do %>
+                <i class="fas fa-arrow-left m-5" style="font-size: 30px"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

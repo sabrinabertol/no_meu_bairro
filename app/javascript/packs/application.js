@@ -36,6 +36,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
 
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
