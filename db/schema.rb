@@ -72,6 +72,43 @@ ActiveRecord::Schema.define(version: 2020_11_23_231303) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
+  create_table "forum_categories", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.string "color", default: "000000"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forum_posts", id: :serial, force: :cascade do |t|
+    t.integer "forum_thread_id"
+    t.integer "user_id"
+    t.text "body"
+    t.boolean "solved", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forum_subscriptions", id: :serial, force: :cascade do |t|
+    t.integer "forum_thread_id"
+    t.integer "user_id"
+    t.string "subscription_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forum_threads", id: :serial, force: :cascade do |t|
+    t.integer "forum_category_id"
+    t.integer "user_id"
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.integer "forum_posts_count", default: 0
+    t.boolean "pinned", default: false
+    t.boolean "solved", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "neighbourhoods", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -154,6 +191,12 @@ ActiveRecord::Schema.define(version: 2020_11_23_231303) do
   add_foreign_key "comments", "users"
   add_foreign_key "favourites", "services"
   add_foreign_key "favourites", "users"
+  add_foreign_key "forum_posts", "forum_threads"
+  add_foreign_key "forum_posts", "users"
+  add_foreign_key "forum_subscriptions", "forum_threads"
+  add_foreign_key "forum_subscriptions", "users"
+  add_foreign_key "forum_threads", "forum_categories"
+  add_foreign_key "forum_threads", "users"
   add_foreign_key "posts", "neighbourhoods"
   add_foreign_key "posts", "users"
   add_foreign_key "reviews", "services"

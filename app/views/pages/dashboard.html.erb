@@ -1,44 +1,15 @@
- <div class="top-image">
-    
-</div>   
+ <div class="card-container">
+	<img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+	<h3><%= current_user.name %></h3>
+	<h6><% current_user.neighbourhood %></h6>
+	<p>User interface designer and <br/> front-end developer</p>
+	<div class="buttons mb-2">
+		<button class="primary">
+			New Post
+		</button>
 
-<div class="container mt-2">
-    
-    <div class="recent-posts">
-        <div>
-            <h6>recent posts:</h6>
-        </div>
-        <div class="notification">
-            <% @posts.each do |post| %>
-                <img src=<%= post.user.photo %> class="avatar-large" />
-                <div class="notification-content">
-                    <p><small>14th January</small></p>
-                    <p> Published at, <%= time_ago_in_words(post.created_at) %> <strong>by:</strong> <%= post.user.email %></p>
-                    <a href=<%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %> > + </a>
-                        byebug
-            <% end %>
-            
-        
-            
-        </div>
-    </div>
-
-    <div class="recent-news">
-        <div>
-            <h6>recent news</h6>
-        </div>
-    </div>
-
-    <div class="recent-news">
-        <div>
-            <h6>favourites</h6>
-        </div>
-    </div>
-
-    
+	</div>
 </div>
-
-
-  <h2>
+    
     
  
