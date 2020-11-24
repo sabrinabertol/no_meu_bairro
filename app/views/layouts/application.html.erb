@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%#= favicon_link_tag %>
     <title>NoMeuBairro</title>
+
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+
+<!--     <meta property="og:title" content="<%#= meta_title %>" />
+
+    <meta property="og:type" content="nomeubairro.eu" />
+    <meta property="og:url" content="<%#= request.original_url %>" />
+    <meta property="og:image" content="<%#= meta_image %>" />
+    <meta property="og:description" content="<%#= meta_description %>" />
+    <meta property="og:site_name" content="<%#= meta_title %>" />
+ -->
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +25,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  
+
       <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 
@@ -18,7 +34,6 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 </html>

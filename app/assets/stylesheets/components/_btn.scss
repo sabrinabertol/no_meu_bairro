@@ -3,9 +3,9 @@
   color: white;
   padding-left: 25px;
   padding-right: 25px;
-  min-width: 250px;
+  min-width: 150px;
   width: auto;
-  height: 50px;
+  height: 40px;
 }
 
 .btn-block {
@@ -13,7 +13,7 @@
   color: white;
   padding-left: 25px;
   padding-right: 25px;
-  height: 50px;
+  height: 40px;
 }
 
 .btn-outline-primary {
@@ -41,58 +41,52 @@
 }
 
 .btn-category {
-  height: 70px;
-  width: 120px;
-  border-radius: 5px;
+  height: 120px;
+  width: 80px;
   color: #F6830F;
-  background-color: white;
+  background-color: #FFC799;
   text-align: center;
-  padding: auto;
   font-size: 13px;
-  padding-top: 8px;
   margin: 16px;
   margin-right: 0;
-  margin-left: 5px;
+  margin-left: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-color: white;
+  border-radius: 50px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.btn-category-red {
-  height: 70px;
-  width: 120px;
-  border-radius: 5px;
-  color: #BB2205;
-  background-color: white;
-  text-align: center;
-  padding: auto;
-  font-size: 13px;
-  padding-top: 8px;
-  margin: 16px;
-  margin-right: 0;
-  margin-left: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-color: white;
-}
-
-.btn-category-green {
-  height: 70px;
-  width: 120px;
-  border-radius: 5px;
-  color: #0E918C;
-  background-color: white;
-  text-align: center;
-  padding: auto;
-  font-size: 13px;
-  padding-top: 8px;
-  margin: 16px;
-  margin-right: 0;
-  margin-left: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-color: white;
+.circle-icon {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .button-profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  color: #858585;
+  background-color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 30px;
+  padding-top: 54px;
+}
+
+.button-profile {
   width: 150px;
   height: 150px;
   border-radius: 100%;
@@ -121,6 +115,7 @@
   display: none; }
 
 
+
 .fa-star {
   float: left;
   font-size: 100%;
@@ -128,5 +123,6 @@
   margin-right: 5px;
 }
 
-.favorite { color: yellow; }
+.favorite { color: #FAB703; }
+
 

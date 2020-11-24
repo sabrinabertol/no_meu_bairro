@@ -1,63 +1,31 @@
-<!-- <div id="navbar" class="nav-container">
-  <%# if user_signed_in? %>
-    <ul class="nav nav-pills m-3">
-      <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-         <i class="fas fa-bars" style="font-size: 30px"></i><span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu p-2">
-          <li><%#= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %></li>
-          <li><%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-        </ul>
-      </li>
-    </ul>
-  <%# else %>
-    <ul class="nav nav-pills m-3">
-      <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-         <i class="fas fa-bars" style="font-size: 30px"></i><span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu p-2">
-          <li><%#= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
-          <li><%#= link_to "Register", new_user_registration_path, class: "dropdown-item" %></li>
-        </ul>
-      </li>
-    </ul>
-  <%# end %>
-</div> -->
-
-
-<nav id="navbar" class="navbar nav-container">
+<nav id="navbar" class="navbar nav-container" data-spy="affix" data-offset-top="60" >
   <ul class="nav nav-pills">
     <li role="presentation" class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-       <i class="fas fa-bars" style="font-size: 30px"></i>
+          <% if user_signed_in? %>
+
+      <a  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30, crop: :fill) %>
+
       </a>
       <ul class="dropdown-menu p-2">
-       <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Register", new_user_registration_path, class: "dropdown-item" %></li>
+            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </ul>
     </li>
   </ul>
-  <form class="form-inline">
-    <% if user_signed_in? %>
-      <% if current_user.photo.attached? %>
-        <li class="nav-item dropdown" style="list-style: none">
-          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item dropdown" style="list-style: none">
-          <%= cl_image_tag "logo-avatar2-02_kqleye.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% end %>
-    <% end %>
-  </form>
+        <% else %>
+
+
+      <a  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30, crop: :fill) %>
+      </a>
+      <ul class="dropdown-menu p-2">
+       <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+          <%= link_to "Register", new_user_registration_path, class: "dropdown-item" %>
+      </ul>
+    </li>
+  </ul>
+  <% end %>
+  <div></div>
 </nav>
+

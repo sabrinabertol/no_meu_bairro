@@ -1,4 +1,4 @@
-<div class="masthead">
+<div class="masthead-user">
   <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6">
@@ -13,18 +13,22 @@
               <%= f.input :closetime %>
               <%= f.input :website %>
 
-            <div class="center-buttons">
-              <%= f.input :photo, as: :file,
+          <div class="center-buttons">
+              <%= f.input f.input :photos, as: :file,
                           required: false,
-                          input_html: { class: 'd-none' },
+                          input_html: { class: 'd-none', multiple: true },
                           label_html: { class: 'btn btn-outline-primary mt-3' },
                           label: 'Add photos to your service!' %>
               <%= f.button :submit, "Update details", class: "btn btn-primary mt-5" %>
             <% end %>
-
-            <button id="sweet-alert-demo" class="btn btn-outline-danger m-3">Delete <%= @service.name %></button>
-            <%= link_to "", neighbourhood_service_path(@service), method: :delete, id: "delete-link", class: "hidden" %>
+            <div class="m-3">
+              <%= link_to "Delete service",
+                          neighbourhood_service_path(@service),
+                          method: :delete,
+                          style: "color: red",
+                          data: { confirm: "Are you sure?" } %>
             </div>
+          </div>
         </div>
       </div>
     </div>

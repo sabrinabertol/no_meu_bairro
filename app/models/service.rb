@@ -8,7 +8,7 @@ class Service < ApplicationRecord
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :favourites, dependent: :destroy
-  has_one_attached :photo
+  has_many_attached :photos
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_category,
