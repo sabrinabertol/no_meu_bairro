@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <%#= favicon_link_tag %>
     <title>NoMeuBairro</title>
 
@@ -16,7 +17,6 @@
     <meta property="og:image" content="<%#= meta_image %>" />
     <meta property="og:description" content="<%#= meta_description %>" />
     <meta property="og:site_name" content="<%#= meta_title %>" />
- -->
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,7 +32,7 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <%#= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
