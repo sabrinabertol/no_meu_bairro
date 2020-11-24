@@ -5,7 +5,18 @@
         <div class="d-flex justify-content-between">
           <h1><%= @service.name %> </h1>
           <div id="favourite">
-            <%= toggle_favourite(@neighbourhood, @service) %> 
+
+             <% if current_user.has_favourited?(@service) %>
+                <%= link_to unfav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %> 
+                  <i class='fa fa-heart favourite'></i>
+                <% end %> 
+            <% else %>  
+                <%= link_to  fav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %>
+
+                  <i class='far fa-heart'></i>
+                <% end %>
+            <% end %>
+        
           </div>
         </div>        
       </div>
