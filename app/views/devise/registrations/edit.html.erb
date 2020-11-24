@@ -1,4 +1,4 @@
-<div class="masthead">
+<div class="masthead-user">
   <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6">
@@ -13,12 +13,11 @@
                 <% if current_user.photo.attached? %>
                   <div class="form-inputs">
                     <div class="center-buttons">
-                      <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
                       <%= f.input :photo, as: :file,
                                   required: false,
                                   input_html: { class: 'd-none' },
-                                  label_html: { class: 'button-profile-photo', id: 'photo-input'},
-                                  label: 'Add a profile photo!' %>
+                                  label_html: { class: 'button-profile-photo', id: 'photo-input' },
+                                  label: 'Change profile photo!' %>
                     </div>
                     <%= f.input :name,
                                 hint:"leave it blank if you don't want to change it",
@@ -39,6 +38,9 @@
                                 hint: "we need your current password to confirm your changes",
                                 required: true,
                                 input_html: { autocomplete: "current-password" } %>
+                                <%#= f.association :neighbourhood,
+                                                  collection: Neighbourhood.name,
+                                                  prompt: "Choose a neighbourhood!"  %>
                     <div class="center-buttons">
                     <%= f.button :submit, "Update", class: "btn btn-primary mb-3" %>
                     <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
@@ -48,12 +50,11 @@
 
                   <div class="form-inputs">
                     <div class="center-buttons">
-                      <%= image_tag "", width: 150, class: "hidden avatar-large", id: "photo-preview" %>
                       <%= f.input :photo, as: :file,
                                   required: false,
                                   input_html: { class: 'd-none' },
 
-                                  label_html: { class: 'button-profile-photo mt-3', id: 'photo-input'},
+                                  label_html: { class: 'button-profile', id: 'photo-input'},
                                   label: 'Add a profile photo!' %>
 
                     </div>
@@ -94,6 +95,4 @@
     </div>
   </div>
 </div>
-
-
 

@@ -38,6 +38,7 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
 import { toggle } from '../plugins/init_favourite';
 
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();

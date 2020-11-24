@@ -76,7 +76,7 @@ class ServicesController < ApplicationController
     @service.neighbourhood = @neighbourhood
     params.require(:service).permit(
       :name, :address, :phone, :opentime, :closetime, :category, :latitude,
-      :longitude, :photo, :website, :weekdays, :description, :favourite
+      :longitude, :website, :weekdays, :description, :favourite, photos: []
     )
   end
 

@@ -1,4 +1,4 @@
-<div class="masthead">
+<div class="masthead-user">
   <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-12 col-lg-6">
@@ -8,7 +8,6 @@
 
           <%= simple_form_for [@neighbourhood, @service] do |f| %>
             <%= f.input :name %>
-            <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn btn-primary'}, label: '📷 Upload a photo' %>
             <%= f.input :address, html: { id: :service_address } %>
             <%= f.input :description %>
             <%= f.input :phone %>
@@ -16,8 +15,14 @@
             <%= f.input :closetime %>
             <%= f.input :website %>
             <%= f.input :category %>
+            <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn btn-primary'}, label: '📷 Upload a photo' %>
             <%= f.submit %>
           <% end %>
+         </div>
+         <div class="mt-4 center-buttons">
+           <%= link_to neighbourhood_service_path(@neighbourhood, @service) do %>
+             <i class="fas fa-arrow-left m-5" style="font-size: 30px"></i>
+           <% end %>
          </div>
         </div>
       </div>
