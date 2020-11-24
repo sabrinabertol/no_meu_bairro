@@ -14,9 +14,9 @@
               <%= f.input :website %>
 
           <div class="center-buttons">
-              <%= f.input :photo, as: :file,
+              <%= f.input f.input :photos, as: :file,
                           required: false,
-                          input_html: { class: 'd-none' },
+                          input_html: { class: 'd-none', multiple: true },
                           label_html: { class: 'btn btn-outline-primary mt-3' },
                           label: 'Add photos to your service!' %>
               <%= f.button :submit, "Update details", class: "btn btn-primary mt-5" %>
