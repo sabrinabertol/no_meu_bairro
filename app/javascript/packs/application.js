@@ -39,7 +39,6 @@ import { previewImageOnFileSelect } from '../plugins/photo_preview';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
 
-
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
@@ -63,7 +62,3 @@ document.addEventListener('turbolinks:load', () => {
     }
   });
 });
-
-
-
-
