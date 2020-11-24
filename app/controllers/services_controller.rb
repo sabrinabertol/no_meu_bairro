@@ -25,6 +25,10 @@ class ServicesController < ApplicationController
         }
       end
     end
+
+    @favourites = Favourite.all 
+
+
   end
 
   def show
