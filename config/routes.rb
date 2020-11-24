@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :dashboard
   root to: 'neighbourhoods#index'
-  resources :news, only: [:index]
+  resources :news, only: [:index ]
   resources :neighbourhoods, only: [:index, :show] do
     resources :services do
       resources :reviews, only: [:new, :create, :edit, :destroy]
