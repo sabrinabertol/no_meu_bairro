@@ -36,7 +36,7 @@ import "jquery-bar-rating";
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
-import { toggle } from '../plugins/init_favourite';
+// import { toggle } from '../plugins/init_favourite';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
