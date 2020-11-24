@@ -17,4 +17,14 @@ class Service < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
+  def favourite!
+    self.favourite = true
+    self.save!
+  end
+
+  def unfavourite!
+    self.favourite = false
+    self.save!
+  end
+
 end

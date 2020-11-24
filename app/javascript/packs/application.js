@@ -30,17 +30,20 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 import "bootstrap";
 import "jquery-bar-rating";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
+import { toggle } from '../plugins/init_favourite';
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
+  toggle();
   previewImageOnFileSelect();
   initSweetalert('#sweet-alert', {
     title: "A nice alert",

@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Hi there! This is the Index Page.</h1>
+
+<% @posts.each do |post| %>
+  <h2>
+    <%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %>
+  </h2>
+  <p></p>
+  Published at
+  <%= time_ago_in_words(post.created_at) %>
+  <%= post.user.email %>
+<% end %>
+
+<%= link_to "New Post", new_neighbourhood_post_path %>
+<%= link_to "Home", root_path %>
