@@ -122,7 +122,7 @@ end
 
 
 destroy()
-reate_neighbourhood()
+create_neighbourhood()
 create_users()
 # + Santo António 
 o_meu_bairro("santo-antonio","Santo António")
