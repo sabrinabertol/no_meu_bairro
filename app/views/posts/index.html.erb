@@ -1,48 +1,25 @@
+<header class="masthead">
+  <div class="container">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto">
+    <div class="container mt-1">
+     <%= link_to new_neighbourhood_post_path do %>
+     <button type="button" class="btn btn-primary mb-2">New Post</button>
+     <% end %>
 
+     <% @posts.each do |post| %>
+     <div class="mt-2 notification">
+      <img src='https://thispersondoesnotexist.com/image' class="avatar-bordered"/>
+      <div class="notification-content">
+        <%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %>
+        <%= post.content %>
+        <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
+      </div>
+    </div>
+    <% end %>
 
-<div class="text-center"> <div class="newpost, btn btn-lg btn-secondary"> <%= link_to "New Post", new_neighbourhood_post_path %> </div></div>
-
-<% @posts.each do |post| %>
-<div class="notification">
-  <img src='https://thispersondoesnotexist.com/image' class="avatar-bordered"/>
-  <div class="notification-content">
-    <%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %>
-    <%= post.content %>
-    <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
-</div>
-</div>
-<% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="text-center"> <div class="newpost, btn btn-lg btn-secondary"> <%= link_to "Home", root_path %> </div></div>
-
-
-
-
-
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="www.github.com/nomeubairro"><i class="fab fa-github"></i></a>
-    <a href="www.instagram.com/nomeubairro"><i class="fab fa-instagram"></i></a>
-    <a href="www.facebook.com/nomeubairro"><i class="fab fa-facebook"></i></a>
-    <a href="wwww.twitter.com/nomeubairro"><i class="fab fa-twitter"></i></a>
-    <a href="www.linkedin.com/nomeubairro"><i class="fab fa-linkedin"></i></a>
+    <%= link_to root_path do %>
+    <button type="button" class="btn btn-primary mt-2">Home</button>
+    <% end %>
   </div>
 </div>
-</div>
+</header>
