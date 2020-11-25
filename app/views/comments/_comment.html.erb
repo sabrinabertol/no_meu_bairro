@@ -1,9 +1,19 @@
+<div class="notification">
+  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-bordered" />
+  <div class="notification-content">
+    <p class="username mb-1"><small>Published at <%= time_ago_in_words(comment.created_at) %></small></p>
+    <p class="username mb-1"> <%= comment.user.email %> said: </p><p class="mb-1"> <%= comment.comment %> </p>
+  </div>
 
-<div class="comment">
-  <p> <%= comment.comment %> </p>
-  <p> <%= comment.user.email %></p>
 
-  <%= link_to "Edit", edit_neighbourhood_post_comment_path(comment.post,comment) %>
-  <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+  <div class="postmessage">
 
+
+  <%= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %> Edit<i class="fas fa-pencil-alt"></i></a>
+      <% end %>
+
+  <%= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
+      Delete<i class="far fa-trash-alt"></i></a>
+      <% end %>
+</div>
 </div>
