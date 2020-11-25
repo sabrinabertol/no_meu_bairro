@@ -30,16 +30,11 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 import "bootstrap";
 import "jquery-bar-rating";
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
-import { previewImageOnFileSelect } from '../plugins/photo_preview';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
-
-
-
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
@@ -47,5 +42,4 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   showMap();
   showList();
-  previewImageOnFileSelect();
 });

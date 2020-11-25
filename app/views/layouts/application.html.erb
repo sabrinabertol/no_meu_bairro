@@ -32,8 +32,11 @@
   </head>
 
   <body>
-    <%#= render 'shared/navbar' %>
-    <%= yield %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <% unless controller_path == "neighbourhoods" && action_name=="index" %>
+    <%= render "components/footer" %>
+    <% end %>
   </body>
 </html>
