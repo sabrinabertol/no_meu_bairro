@@ -25,10 +25,13 @@
               <%= link_to "Delete service",
                           neighbourhood_service_path(@service),
                           method: :delete,
-                          style: "color: red",
+                          style: "color: #BB2205",
                           data: { confirm: "Are you sure?" } %>
             </div>
           </div>
+                <div class="center-buttons mb-3">
+                  <%= link_to 'Back', 'javascript:history.back()' %>
+                </div>
         </div>
       </div>
     </div>

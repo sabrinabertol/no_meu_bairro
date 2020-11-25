@@ -1,8 +1,15 @@
-<div class="container"><h2> Edit Post </h2>
-
-<%= render 'form' %>
-
-<%= link_to new_neighbourhood_post_path, class: 'btn btn-success' do %>
-  Cancel
-<% end %>
+<div class="masthead-user">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-6">
+        <div class="background-card mt-5">
+          <h2>Edit Post</h2>
+          <%= render 'form' %>
+          <div class="center-buttons mt-4 mb-2">
+            <%= link_to 'Back', 'javascript:history.back()' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
