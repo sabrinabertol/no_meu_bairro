@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
-  before_action :set_neighbourhood 
+  before_action :set_neighbourhood
   before_action :set_service, only: [:show, :update, :edit, :destroy, :fav, :unfav]
 
   def index
@@ -26,14 +26,13 @@ class ServicesController < ApplicationController
       end
     end
 
-    @favourites = Favourite.all 
+    @favourites = Favourite.all
 
 
   end
 
   def show
     @service.neighbourhood = @neighbourhood
-    # @favourite = Favourite.new
     @review = Review.new
     @markers =
       [{
@@ -74,12 +73,12 @@ class ServicesController < ApplicationController
   end
 
   def fav
-    @favourite = Favourite.create(user: current_user, service: @service) 
+    @favourite = Favourite.create(user: current_user, service: @service)
     redirect_to neighbourhood_service_path(@neighbourhood, @service)
   end
 
   def unfav
-    @favourite = Favourite.find_by(user: current_user, service: @service) 
+    @favourite = Favourite.find_by(user: current_user, service: @service)
     @favourite.destroy
 
     redirect_to neighbourhood_service_path(@neighbourhood, @service)

@@ -1,40 +1,29 @@
 <nav id="navbar" class="navbar nav-container" data-spy="affix" data-offset-top="60" >
   <ul class="nav nav-pills">
-    <li role="presentation" class="dropdown">
-          <% if user_signed_in? %>
-
-      <a  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30) %>
-
-      </ a>
-      <ul class="dropdown-menu p-2">
-            <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </ul>
-    </li>
-  </ul>
+    <li role="presentation" class="dropdown ">
+      <% if user_signed_in? %>
+        <a data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30, width: 30, crop: :fill) %>
+        </a>
+        <ul class="dropdown-menu p-2">
+          <%= link_to "Home", neighbourhoods_path , class: "dropdown-item" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+          <%#= link_to "Announce your service", new_neighbourhood_service_path(@neighbourhood), class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </ul>
         <% else %>
-
-
-      <a  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30) %>
-      </a>
-      <ul class="dropdown-menu p-2">
-       <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+        <a  data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/marker_c7met3.svg", height: 30, width: 30, crop: :fill) %>
+        </a>
+        <ul class="dropdown-menu p-2">
+          <%= link_to "Home", neighbourhoods_path , class: "dropdown-item" %>
+          <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
           <%= link_to "Register", new_user_registration_path, class: "dropdown-item" %>
-      </ul>
+        </ul>
+      <% end %>
     </li>
   </ul>
-  <% end %>
-  <div></div>
+    <div>
+    <%#= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/LOGO-SMALL_pso851.svg", height: 25, crop: :fill) %>
+  </div>
 </nav>
-
-
-
-
-
-
-
-
-
-

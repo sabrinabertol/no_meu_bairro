@@ -8,6 +8,17 @@
   height: 40px;
 }
 
+.btn-maplist {
+  width: auto;
+  max-width: 300px;
+  height: 28px;
+  color: #F6830F;
+  background-color: white;
+  border-radius: 28px;
+  margin: 20px;
+  border: solid 1px #F6830F;
+}
+
 .btn-block {
   border-radius: 28px;
   color: white;
@@ -41,15 +52,14 @@
 }
 
 .btn-category {
-  height: 120px;
+  height: 80px;
   width: 80px;
   color: #F6830F;
-  background-color: #FFC799;
+  background-color: white;
   text-align: center;
-  font-size: 13px;
-  margin: 16px;
+  margin: 24px;
   margin-right: 0;
-  margin-left: 20px;
+  margin-left: 24px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 50px;
   border: none;
@@ -60,17 +70,19 @@
 }
 
 .circle-icon {
-    background: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-color: #F6830F;
 }
 
 
