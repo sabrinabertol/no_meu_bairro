@@ -13,6 +13,5 @@ class PagesController < ApplicationController
     @neighbourhood = current_user.neighbourhood
     @favourites = current_user.favourites
     @posts = Post.order('created_at DESC').limit(5)
-    @comments = 
   end
 end

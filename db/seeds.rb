@@ -26,7 +26,9 @@ def create_users()
     User.create!(
       name:Faker::FunnyName.two_word_name, 
       password: "123456", 
-      email: Faker::Internet.email) 
+      email: Faker::Internet.email,
+      neighbourhood: Neighbourhood.all.sample,
+      )
   end
 
   puts ".....................users ok"
@@ -120,9 +122,8 @@ end
 
 
 destroy()
+reate_neighbourhood()
 create_users()
-create_neighbourhood()
-
 # + Santo António 
 o_meu_bairro("santo-antonio","Santo António")
 # + Parque das Nações
