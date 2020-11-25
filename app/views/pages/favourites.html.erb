@@ -1,24 +1,29 @@
-<div class="container mt-2">  
-	<div class="favourites">
-		<div>
-			<i class='fa fa-heart'> <h6>Favourites:</h6> 
-		</div>
-		  <div class="notification">
-		    <% if @favourites.present? %>
-	       	<% @favourites.each do |favourite| %>
-	       	<% favourites %> 			
-	      <!-- < else %> -->
-	        <!-- <p> You don't have any favourites. </p> -->
-			  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-16 col-lg-6">
+				 <h1 class="mt-4">Favourite Services </h1>
+			<div class="container mt-5">
+				<% if @favourites.present? %>
+		   		<% @favourites.each do |favourite| %>
+		    		<%= link_to neighbourhood_service_path(favourite.service.neighbourhood, favourite.service) do %>
+		      	<div class="card-product mb-3">
+			        <% if favourite.service.photos.attached? %>
+			        	<%= cl_image_tag favourite.service.photo.key %>
+			        <% else %>
+			        	<img src="https://picsum.photos/120" />
+			        <% end %>
+			          <div class="card-product-infos">
+			            <h2><%= favourite.service.name %></h2>
+			              <p><%= favourite.service.category %></p>
+			          </div>
+		    		</div>
+		    		<% end %>
+		  		<% end %>
+		  	<% end %>		
+		  </div>
+			<div class="center-buttons">
+			  <%= link_to :back %>
 			</div>
 		</div>
-
-
-		<div class="center-buttons">
-      <%= link_to 'Back', 'javascript:history.back()' %>
-    </div>
 	</div>
 </div>
-
-
-

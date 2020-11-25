@@ -15,7 +15,6 @@ Rails.application.routes.draw do
         post "fav", to: "services#fav"
         post "unfav", to: "services#unfav"
       end
-
       resources :posts do
       resources :comments, except: [:destroy]
     end
@@ -26,5 +25,3 @@ Rails.application.routes.draw do
     resources :comments, only: [:destroy]
   end
 end
-end
-
