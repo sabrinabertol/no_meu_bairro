@@ -1,5 +1,6 @@
 
 <div class="comment">
+
   <p> <%= comment.comment %> </p>
   <p> <%= comment.user.email %></p>
 
@@ -7,3 +8,4 @@
   <%= link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" } %>
 
 </div>
+<hr>
