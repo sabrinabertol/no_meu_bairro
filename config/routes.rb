@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   get "/dashboard", to: "pages#dashboard"
   get "/about", to: "pages#about"
-
   get "/favourites", to: "pages#favourites", as: "favourites"
 
   root to: 'neighbourhoods#index'
@@ -16,11 +15,12 @@ Rails.application.routes.draw do
         post "fav", to: "services#fav"
         post "unfav", to: "services#unfav"
       end
+      resources :posts do
+      resources :comments, except: [:destroy]
     end
-     resources :posts do
-     resources :comments, except: [:destroy]
+      # resources :favourites, only: [:create, :destroy]
+    end
   end
-    end
   resources :posts, only: [] do
     resources :comments, only: [:destroy]
   end
