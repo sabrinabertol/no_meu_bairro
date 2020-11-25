@@ -6,15 +6,15 @@
           <h1><%= @service.name %></h1>
           <div id="favourite">
           
-             <% if current_user.has_favourited?(@service) %>
+            <% if current_user.has_favourited?(@service) %>
                 <%= link_to unfav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %> 
                   <i class='fa fa-heart favourite'></i>
                 <% end %> 
             <% else %>  
-                <%= link_to  fav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %>
+                <%= link_to fav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %>
                   <i class='far fa-heart'></i>
                 <% end %>
-            <% end %>        
+            <% end %>      
           
           </div>
         </div>        
@@ -87,16 +87,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 <div id="map"
