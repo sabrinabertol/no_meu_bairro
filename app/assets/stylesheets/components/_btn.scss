@@ -138,3 +138,14 @@
 .favorite { color: #FAB703; }
 
 
+.button-search {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: inherit;
+}

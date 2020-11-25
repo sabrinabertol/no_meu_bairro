@@ -36,7 +36,7 @@
     <%= render 'shared/navbar' %>
     <%= yield %>
     <% unless controller_path == "neighbourhoods" && action_name=="index" %>
-    <%= render "components/footer" %>
+      <%= render "components/footer" %>
     <% end %>
   </body>
 </html>
