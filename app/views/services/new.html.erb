@@ -15,14 +15,17 @@
             <%= f.input :closetime %>
             <%= f.input :website %>
             <%= f.input :category %>
-            <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'btn btn-primary'}, label: '📷 Upload a photo' %>
-            <%= f.submit %>
+            <%= f.input :photos, as: :file,  input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: 'Upload photos!' %>
+            <%= f.submit, class: "btn btn-primary mb-4" %>
           <% end %>
+          <%= image_tag "", width: 200, class: "hidden", id: "photo-preview" %>
          </div>
          <div class="mt-4 center-buttons">
-           <%= link_to neighbourhood_service_path(@neighbourhood, @service) do %>
+           <%#= link_to neighbourhood_service_path(@neighbourhood, @service) do %>
+             <%= link_to 'Back', 'javascript:history.back()' %>
+
              <i class="fas fa-arrow-left m-5" style="font-size: 30px"></i>
-           <% end %>
+           <%# end %>
          </div>
         </div>
       </div>
