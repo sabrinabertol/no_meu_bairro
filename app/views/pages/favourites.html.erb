@@ -1,15 +1,24 @@
-<% @services.each do |service| %>
-    <%= link_to neighbourhood_service_path(@neighbourhood, @service) do %>
-      <div class="card-product mb-3">
-        <% if service.photos.attached? %>
-        <%= cl_image_tag service.photo.key %>
-        <% else %>
-        <img src="https://picsum.photos/120" />
-        <% end %>
-          <div class="card-product-infos">
-            <h2><%= service.name %></h2>
-              <p><%= service.category %></p>
-          </div>
-      </div>
-    <% end %>
-  <% end %>
+<div class="container mt-2">  
+	<div class="favourites">
+		<div>
+			<i class='fa fa-heart'> <h6>Favourites:</h6> 
+		</div>
+		  <div class="notification">
+		    <% if @favourites.present? %>
+	       	<% @favourites.each do |favourite| %>
+	       	<% favourites %> 			
+	      <!-- < else %> -->
+	        <!-- <p> You don't have any favourites. </p> -->
+			  <% end %>
+			</div>
+		</div>
+
+
+		<div class="center-buttons">
+      <%= link_to 'Back', 'javascript:history.back()' %>
+    </div>
+	</div>
+</div>
+
+
+

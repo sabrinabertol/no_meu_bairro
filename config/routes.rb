@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
   get "/about", to: "pages#about"
 
+  get "/favourites", to: "pages#favourites", as: "favourites"
+
   root to: 'neighbourhoods#index'
   resources :news, only: [:index ]
+  
   resources :neighbourhoods, only: [:index, :show] do
     resources :services do
       resources :reviews, only: [:new, :create, :edit, :destroy]
@@ -14,8 +17,12 @@ Rails.application.routes.draw do
         post "unfav", to: "services#unfav"
       end
 
-      resources :favourites, only: [:create, :destroy]
+    end  
+
+
+     
     end
+
     resources :posts do
       resources :comments, except: [:destroy]
     end
