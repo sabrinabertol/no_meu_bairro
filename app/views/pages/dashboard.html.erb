@@ -1,44 +1,115 @@
- <div class="top-image">
+
+
+<div class="card-container mb-1">
+    <img class="round" src=<%= current_user.photo.key %> alt="user" />
+    <h3><%= current_user.name %></h3>
+    <h6><% current_user.neighbourhood %></h6>
+    <p> Welcome <br/> to your dashboard</p>
+    <div class="buttons mb-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            add new post
+        </button>
     
-</div>   
-
-<div class="container mt-2">
-    
-    <div class="recent-posts">
-        <div>
-            <h6>recent posts:</h6>
-        </div>
-        <div class="notification">
-            <% @posts.each do |post| %>
-                <img src=<%= post.user.photo %> class="avatar-large" />
-                <div class="notification-content">
-                    <p><small>14th January</small></p>
-                    <p> Published at, <%= time_ago_in_words(post.created_at) %> <strong>by:</strong> <%= post.user.email %></p>
-                    <a href=<%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %> > + </a>
-                        byebug
-            <% end %>
-            
-        
-            
-        </div>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <%#= render 'posts/new'%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-
-    <div class="recent-news">
-        <div>
-            <h6>recent news</h6>
-        </div>
-    </div>
-
-    <div class="recent-news">
-        <div>
-            <h6>favourites</h6>
-        </div>
-    </div>
-
-    
+  </div>
+</div>
 </div>
 
 
-  <h2>
+
+
+
+<div>
+    <span class="border border-primary"><h6>Latest posts</h6></span>
+</div>
+
+<% @posts.each do |post| %>
+
+    <div class="notification">
+        <img src='https://thispersondoesnotexist.com/image' class="avatar-bordered"/>
+        <div class="notification-content" data-toggle="modal" data-target="#exampleModalCenter">
+        
+            <%= post.title %>
+            <%= post.content %> 
+            <p><small>Published at <%= time_ago_in_words(post.created_at) %> - replys <span class="badge badge-warning"><%= post.comments.count %></span></small></p>
+
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle"><%= post.title %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                <div class="modal-body">
+                    <div id="neighbourhood_post_content"></div>
+                        <h1>
+                        <%= post.title %>
+                        </h1>
+                        <p>
+                        <%= post.content %>
+                        <p>
+                        <div id="comments">
+                            <%= post.comments %>
+                            <h3>Reply to thread
+                            <%#= render "comments/form" %>
+                         </div>    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+
+
+<!-- Modal -->
+
+
+
+
+
+
+<div>
+    <span class="border border-primary"><h6>Agenda</h6></span>
+</div>
+
+<div>
+<% @news.each do |new| %>
+      <div class="card-product mb-1">
+        <%= image_tag new.photourl %>
+          <div class="card-product-infos">
+            <h2> <%= new.title %> </h2>
+              <a href=<%= new.url %> target="_blank">info +</a> 
+          </div>
+      </div>
+  <% end %>
+
+
+    
     
  

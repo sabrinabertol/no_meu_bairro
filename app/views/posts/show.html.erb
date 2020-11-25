@@ -19,5 +19,6 @@
     <div class="small_text"> This post has been viewed <%= @post.comments.count %> times </div>
     </div>
   <%= render @post.comments %>
+
   <p><%= render "comments/form" %></p>
 </div>

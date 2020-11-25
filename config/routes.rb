@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users 
+  devise_for :users
   get "/dashboard", to: "pages#dashboard"
   get "/about", to: "pages#about"
-  
+
   root to: 'neighbourhoods#index'
   resources :news, only: [:index ]
   resources :neighbourhoods, only: [:index, :show] do
@@ -14,13 +14,14 @@ Rails.application.routes.draw do
         post "unfav", to: "services#unfav"
       end
 
-      # resources :favourites, only: [:create, :destroy]
+      resources :favourites, only: [:create, :destroy]
     end
     resources :posts do
       resources :comments, except: [:destroy]
     end
-  end
   resources :posts, only: [] do
     resources :comments, only: [:destroy]
   end
 end
+end
+
