@@ -44,9 +44,14 @@
   margin-bottom: 20px;
 }
 
+.postmessage {
+  padding-bottom: 3px;
+  border-bottom: 1px dotted black;
+}
+
 .titlemessage {
   padding-bottom: 3px;
-  border-bottom: 1px dotted gray;
+  border-bottom: 1px solid black;
 }
 
 .small_text {
@@ -56,4 +61,9 @@
 
 .backgroundwhite {
   background: white;
+}
+
+.username {
+  font-size: 10px;
+  font-weight: bold;
 }
