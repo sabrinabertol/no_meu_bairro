@@ -1,4 +1,3 @@
-
 const showMap = () => {
   const mapElement = document.getElementById('map');
   const listElement = document.getElementById('list-services');
@@ -8,6 +7,5 @@ const showMap = () => {
     listElement.classList.add("d-none");
   });
 };
-
 
 export { showMap };

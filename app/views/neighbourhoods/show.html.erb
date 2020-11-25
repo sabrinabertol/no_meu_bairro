@@ -1,17 +1,18 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-16 col-lg-6">
-      <div class="mt-4">
-        <%= link_to "list", "", id: 'list-button' %>
-        <%= link_to "map", "", id: 'map-button' %>
-
-
-      	<h1><%= @neighbourhood.name %></h1>
+      <div class="text-center d-flex flex-direction-row justify-content-around btn-maplist text-center center-buttons">
+        <div class="ml-4">
+          <%= link_to "list", "", id: 'list-button' %>
+        </div>
+        <p>|</p>
+        <div class="mr-4">
+          <%= link_to "map", "", id: 'map-button' %>
+        </div>
       </div>
-      <div class="mb-5">
+      <h1><%= @neighbourhood.name %></h1>
         <%= render "components/searchbar" %>
-      </div>
-
+        <%= render "shared/category-buttons" %>
 
         <div id="list-services" class="d-none">
          <% @services.each do |service| %>
@@ -20,29 +21,23 @@
                 <% if service.photos.attached? %>
                         <%= cl_image_tag service.photo.key %>
                         <% else %>
-                        <img src="https://picsum.photos/120" />
+                        <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", width: 120, height: 120, crop: :fill) %>
                         <% end %>
                   <div class="card-product-infos">
-                    <h2> <%= service.name %> </h2>
-                      <p> <%= service.category %> </p>
+                    <h2><%= service.name %></h2>
+                    <p><%= service.category %></p>
+                    <p><%= service.description %></p>
                   </div>
-              </div>
-            <% end %>
+            </div>
           <% end %>
-        </div>
-
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="text-center">
-    <%= link_to new_neighbourhood_service_path(@neighbourhood) do %>
-      <button type="button" class="btn btn-primary mt-5">Add your service!</button>
-    <% end %>
-  </div>
 </div>
 
-<div id="map" class="mt-5"
-     style="width: 100%; height: 600px;"
+<div id="map"
+     style="width: 100%; height: 560px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
