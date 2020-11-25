@@ -14,4 +14,10 @@ class PagesController < ApplicationController
     @favourites = current_user.favourites
     @posts = Post.order('created_at DESC').limit(5)
   end
+
+  def favourites
+    @favourites = current_user.favourites
+    @neighbourhood = current_user.neighbourhood
+  end
+
 end

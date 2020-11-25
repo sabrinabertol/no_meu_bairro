@@ -33,6 +33,8 @@ import "jquery-bar-rating";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
+import { initSweetalert } from '../plugins/init_sweetalert';
+import { previewImageOnFileSelect } from '../plugins/photo_preview';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
 
