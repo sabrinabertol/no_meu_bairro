@@ -9,16 +9,15 @@ Rails.application.routes.draw do
   resources :news, only: [:index ]
 
   resources :neighbourhoods, only: [:index, :show] do
+      resources :posts do
+        resources :comments, except: [:destroy]
+      end
     resources :services do
       resources :reviews, only: [:new, :create, :edit, :destroy]
       member do
         post "fav", to: "services#fav"
         post "unfav", to: "services#unfav"
       end
-      resources :posts do
-      resources :comments, except: [:destroy]
-    end
-      # resources :favourites, only: [:create, :destroy]
     end
   end
   resources :posts, only: [] do
