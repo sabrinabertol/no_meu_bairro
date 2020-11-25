@@ -19,10 +19,12 @@
             <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
               <div class="card-product mb-3">
                 <% if service.photos.attached? %>
-                        <%= cl_image_tag service.photo.key %>
-                        <% else %>
-                        <img src="https://picsum.photos/120" />
-                        <% end %>
+                  <% service.photos.each do |photo| %>
+                    <%= cl_image_tag photo.key %>
+                    <% end %>
+                  <% else %>
+                      <img src="https://picsum.photos/120" />
+                  <% end %>
                   <div class="card-product-infos">
                     <h2> <%= service.name %> </h2>
                       <p> <%= service.category %> </p>
