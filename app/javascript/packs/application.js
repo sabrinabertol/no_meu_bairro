@@ -30,13 +30,11 @@ import { initAutocomplete } from '../plugins/init_autocomplete'
 import "bootstrap";
 import "jquery-bar-rating";
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { previewImageOnFileSelect } from '../plugins/photo_preview';
-// import { toggle } from '../plugins/init_favourite';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
 
@@ -44,23 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
-  // toggle();
   showMap();
   showList();
-  previewImageOnFileSelect();
-  initSweetalert('#sweet-alert', {
-    title: "A nice alert",
-    text: "This is a great alert, isn't it?",
-    icon: "success"
-  });
-  initSweetalert('#sweet-alert-demo', {
-    title: "Are you sure?",
-    text: "This action cannot be reversed",
-    icon: "warning"
-  }, (value) => {
-    if (value) {
-      const link = document.querySelector('#delete-link');
-      link.click();
-    }
-  });
 });

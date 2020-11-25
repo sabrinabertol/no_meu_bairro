@@ -10,8 +10,8 @@
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
-     <meta property="og:title" content="<%= meta_title %>" />
 
+    <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="nomeubairro.eu" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:image" content="<%= meta_image %>" />
@@ -33,9 +33,16 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <%= render 'shared/navbar' %>
     <%= yield %>
+=======
+>>>>>>> 5ad5745bb8f8dc789fe43d47dd7b07f7b75cc2ef
     <%= render 'shared/flashes' %>
-
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <% unless controller_path == "neighbourhoods" && action_name=="index" %>
+    <%= render "components/footer" %>
+    <% end %>
   </body>
 </html>

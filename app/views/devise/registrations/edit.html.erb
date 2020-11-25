@@ -4,7 +4,7 @@
         <div class="col-sm-12 col-lg-6">
           <div class="background-card">
 
-            <h2>Edit profile</h2>
+            <h2 class="mt-2 mb-4">Edit profile</h2>
 
               <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                 <%= f.error_notification %>
@@ -14,7 +14,7 @@
                       <%= f.input :photo, as: :file,
                                   required: false,
                                   input_html: { class: 'd-none' },
-                                  label_html: { class: 'button-profile-photo', id: 'photo-input' },
+                                  label_html: { class: 'button-profile-photo avatar-large', style: "background-image: url(#{current_user.photo.service_url})" },
                                   label: 'Change profile photo!' %>
                     </div>
                     <%= f.input :name,
@@ -51,11 +51,12 @@
             <div class="m-3"></div>
             <%= render "devise/shared/links" %>
             <div class="m-3"></div>
-            <%= link_to "Back", :back %>
+            <%= link_to 'Back', 'javascript:history.back()' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= render 'components/footer' %>
 
