@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <%= favicon_link_tag %>
     <title>NoMeuBairro</title>
 
@@ -10,7 +11,6 @@
     <!-- Facebook Open Graph data -->
 
     <meta property="og:title" content="<%= meta_title %>" />
-
     <meta property="og:type" content="nomeubairro.eu" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:image" content="<%= meta_image %>" />
@@ -32,8 +32,8 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <%#= render 'shared/navbar' %>
     <%= yield %>
+    <%= render 'shared/flashes' %>
   </body>
 </html>
