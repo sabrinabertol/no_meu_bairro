@@ -16,7 +16,7 @@
                       <%= f.input :photo, as: :file,
                                   required: false,
                                   input_html: { class: 'd-none' },
-                                  label_html: { class: 'button-profile-photo', id: 'photo-input' },
+                                  label_html: { class: 'button-profile-photo avatar-large', style: "background-image: url(#{current_user.photo.service_url})" },
                                   label: 'Change profile photo!' %>
                     </div>
                     <%= f.input :name,

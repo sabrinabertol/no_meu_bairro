@@ -22,20 +22,11 @@
       <% if @service.photos.attached? %>
         <div id="carouselExampleControls" class="carousel slide mb-3" data-ride="carousel">
           <div class="carousel-inner">
-
-            <div class="carousel-item active">
-              <% @service.photos.each do |service| %>
+            <% @service.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
                 <%= cl_image_tag photo.key, crop: :fill, class: "d-block w-100", alt: "First slide" %>
-              <% end %>
-              <%#= cl_image_tag @service.photos.key, height: 200, crop: :fill, class: "d-block w-100", alt: "First slide" %>
-            </div>
-
-            <div class="carousel-item">
-              <%#= cl_image_tag @service.photos.key, crop: :fill, class: "d-block w-100", alt: "Second slide" %>
-            </div>
-            <div class="carousel-item">
-              <%#= cl_image_tag @service.photos.key, crop: :fill, class: "d-block w-100", alt: "Third slide" %>
-            </div>
+              </div>
+            <% end %>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
