@@ -15,6 +15,7 @@
 .notification p {
   margin: 0;
   line-height: 1.4;
+  flex: right;
 }
 
 .notification small {
@@ -37,3 +38,22 @@
   font-size: 14px;
 }
 
+.newpost {
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.titlemessage {
+  padding-bottom: 3px;
+  border-bottom: 1px dotted gray;
+}
+
+.small_text {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.backgroundwhite {
+  background: white;
+}
