@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: 'neighbourhoods#index'
   resources :news, only: [:index ]
-  
+
   resources :neighbourhoods, only: [:index, :show] do
     resources :services do
       resources :reviews, only: [:new, :create, :edit, :destroy]
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
         post "unfav", to: "services#unfav"
       end
     end
+     resources :posts do
+     resources :comments, except: [:destroy]
   end
-    resources :posts do
-      resources :comments, except: [:destroy]
     end
   resources :posts, only: [] do
     resources :comments, only: [:destroy]
