@@ -8,7 +8,7 @@
       <%= @post.content %>
     </p>
     <div class="notification-actions">
-      <%= link_to edit_neighbourhood_post_path(@post) do %>
+      <%= link_to edit_neighbourhood_post_path(@neighbourhood, @post) do %>
       Edit Post<i class="fas fa-pencil-alt"></i></a>
       <% end %>
 
@@ -19,5 +19,6 @@
     <div class="small_text"> This post has been viewed <%= @post.comments.count %> times </div>
     </div>
   <%= render @post.comments %>
+
   <p><%= render "comments/form" %></p>
 </div>
