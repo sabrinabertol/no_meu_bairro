@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @news = NewsService.call
     @neighbourhood = current_user.neighbourhood
     @favourites = current_user.favourites
-    @posts = Post.all
+    @posts = Post.order('created_at DESC').limit(5)
   end
 
   def favourites

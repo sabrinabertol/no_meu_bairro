@@ -1,29 +1,24 @@
+<div class="container">
 
-<h1>Posts#show</h1>
+  <div class="titlemessage">
+    <h1>
+      <%= @post.title %>
+    </h1>
+    <p>
+      <%= @post.content %>
+    </p>
+    <div class="notification-actions">
+      <%= link_to edit_neighbourhood_post_path(@neighbourhood, @post) do %>
+      Edit Post<i class="fas fa-pencil-alt"></i></a>
+      <% end %>
 
-<p>Boas app/views/posts/show.html.erb</p>
-
-<div id="neighbourhood_post_content"></div>
-<h1>
-  <%= @post.title %>
-</h1>
-<p>
-  <%= @post.content %>
-</p>
-
-<div id="comments">
-  <h2>
-    <%= @post.comments.count %>
-  </h2>
+      <%= link_to neighbourhood_post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
+      Delete Post<i class="far fa-trash-alt"></i></a>
+      <% end %>
+    </div>
+    <div class="small_text"> This post has been viewed <%= @post.comments.count %> times </div>
+    </div>
   <%= render @post.comments %>
+
+  <p><%= render "comments/form" %></p>
 </div>
-<h3>Reply to thread
-  <%= render "comments/form" %>
-</h3>
-
-
-<%= link_to "Edit", edit_neighbourhood_post_path(@post) %>
-<%= link_to "Delete", neighbourhood_post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this ?" } %>
-<%= link_to "Home", root_path %>
-<%= link_to "Back", neighbourhood_posts_path %>
-
