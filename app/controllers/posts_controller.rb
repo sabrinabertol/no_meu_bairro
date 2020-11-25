@@ -28,11 +28,15 @@ def show
 end
 
 def edit
+  @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
 end
 
 def update
+  @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
   if @post.update(post_params)
-   redirect_to @post
+    @post.neighbourhood = @neighbourhood
+    @post.save
+    redirect_to neighbourhood_post_path(@neighbourhood, @post)
   else
    render 'edit'
   end
