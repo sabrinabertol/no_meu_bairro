@@ -5,17 +5,19 @@
     <%= favicon_link_tag %>
     <title>NoMeuBairro</title>
 
+
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
-     <meta property="og:title" content="<%= meta_title %>" />
 
+    <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="nomeubairro.eu" />
     <meta property="og:url" content="<%= request.original_url %>" />
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,8 +33,11 @@
   </head>
 
   <body>
-    <%#= render 'shared/navbar' %>
-    <%= yield %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <% unless controller_path == "neighbourhoods" && action_name=="index" %>
+    <%= render "components/footer" %>
+    <% end %>
   </body>
 </html>

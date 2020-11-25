@@ -5,15 +5,12 @@
     <p class="username mb-1"> <%= comment.user.email %> said: </p><p class="mb-1"> <%= comment.comment %> </p>
   </div>
 
-
   <div class="postmessage">
-
-
   <small><%= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %> <i class="fas fa-pencil-alt"></i></a>
       <% end %>
-
   <%= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
       <i class="far fa-trash-alt"></i></a>
       <% end %></small>
 </div>
 </div>
+<hr>
