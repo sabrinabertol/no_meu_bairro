@@ -11,8 +11,12 @@ class NeighbourhoodsController < ApplicationController
 
   def show
     @neighbourhood = Neighbourhood.find(params[:id])
+    
 
     @services = @neighbourhood.services
+
+    @pagy, @services = pagy(@services, items: 4) 
+
     @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,

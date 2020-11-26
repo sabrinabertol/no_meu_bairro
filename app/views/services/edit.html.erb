@@ -12,23 +12,20 @@
               <%= f.input :opentime %>
               <%= f.input :closetime %>
               <%= f.input :website %>
-
-          <div class="center-buttons">
               <%= f.input :photos, as: :file,
                           required: false,
                           input_html: { class: 'd-none', multiple: true },
-                          label_html: { class: 'btn btn-outline-primary d-flex align-items-center mt-3', style: 'width: 200px' },
-                          label: 'Add photos to your service!' %>
-              <%= f.button :submit, "Update details", class: "btn btn-primary mt-2" %>
+                          label_html: { class: 'btn btn-outline-primary center-buttons mt-3', style: 'width: 200px' },
+                          label: 'Add photos!' %>
+              <%= f.button :submit, "Update details", class: "btn btn-primary center-buttons mt-2" %>
             <% end %>
-            <div class="m-4">
+            <div class="m-4 center-buttons">
               <%= link_to "Delete service",
                           neighbourhood_service_path(@service),
                           method: :delete,
                           style: "color: #BB2205",
                           data: { confirm: "Are you sure?" } %>
             </div>
-          </div>
                 <div class="center-buttons mb-3">
                   <%= link_to 'Back', 'javascript:history.back()' %>
                 </div>

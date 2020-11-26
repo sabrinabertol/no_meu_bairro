@@ -2,7 +2,8 @@ class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
   before_action :set_neighbourhood
   before_action :set_service, only: [:show, :update, :edit, :destroy, :fav, :unfav]
-# 
+  include Pagy::Backend
+
   def index
     if params[:query].present?
       @services = Service.where(neighbourhood:@neighbourhood).search_by_name_and_category(params[:query])
@@ -16,6 +17,8 @@ class ServicesController < ApplicationController
       end
     else
       @services = Service.all
+      
+
       @markers = @services.geocoded.map do |service|
         {
           lat: service.latitude,

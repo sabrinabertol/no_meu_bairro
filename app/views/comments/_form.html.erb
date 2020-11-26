@@ -1,5 +1,6 @@
-
+<div class="container mt-3 mb-3">
 <%= simple_form_for([@neighbourhood, @post, @post.comments.build]) do |f| %>
   <%= f.input :comment %>
    <%= f.submit "Share", class:"btn btn-primary" %>
 <% end %>
+</div>
