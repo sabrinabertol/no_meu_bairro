@@ -138,9 +138,9 @@ create_users()
 # + Santo António
 # o_meu_bairro("santo-antonio","Santo António")
 # + Parque das Nações
-o_meu_bairro("parque-das-nacoes","Parque das Nações")
+# o_meu_bairro("parque-das-nacoes","Parque das Nações")
 # + Marvila
-o_meu_bairro("marvila","Marvila")
+# o_meu_bairro("marvila","Marvila")
 # + Ajuda
 o_meu_bairro("ajuda","Ajuda")
 # + Areeiro
@@ -148,7 +148,7 @@ o_meu_bairro("ajuda","Ajuda")
 # # + Santa Maria Maior
 # o_meu_bairro("santa-maria-maior","Santa Maria Maior")
 # + Alvalade
-o_meu_bairro("alvalade","Alvalade")
+# o_meu_bairro("alvalade","Alvalade")
 # + Belém
 o_meu_bairro("belem","Belém")
 # + Estrela
