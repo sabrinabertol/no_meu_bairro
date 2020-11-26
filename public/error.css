@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.masthead {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 6rem;
+  padding-bottom: 11rem;
+  margin-top: 50px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 75%);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: absolute;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.banner {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 75%);
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  height: 100vh;
+  position: full;
+}
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+
+
+}
+.button-404 {
+  display: block;
+  color: white;
+  background: #F6830F;
+  border:  2px solid #F6830F;
+  width: 100px;
+  font-size: 18px;
+  padding: 1px 100px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  text-align: center;
+  margin-left: 40px;
+}
+
+.button-404:hover {
+  display: block;
+  color: black;
+  background: white;
+  border:  2px solid white;
+  width: 100px;
+  font-size: 18px;
+  padding: 1px 100px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  text-align: center;
+  margin-left: 200px;
+}
