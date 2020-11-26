@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-
   devise_for :users
   get "/dashboard", to: "pages#dashboard"
   get "/about", to: "pages#about"
   get "/favourites", to: "pages#favourites", as: "favourites"
-
   root to: 'neighbourhoods#index'
   resources :news, only: [:index ]
-
   resources :neighbourhoods, only: [:index, :show] do
       resources :posts do
         resources :comments, except: [:destroy]
