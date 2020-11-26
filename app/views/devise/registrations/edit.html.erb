@@ -14,15 +14,15 @@
                       <%= f.input :photo, as: :file,
                                   required: false,
                                   input_html: { class: 'd-none' },
-                                  label_html: { class: 'button-profile-photo avatar-large', style: "background-image: url(#{current_user.photo.service_url})" },
+                                  label_html: { class: 'button-profile-photo avatar-large' },
                                   label: 'Change profile photo!' %>
                     </div>
                     <%= f.input :name,
                                 hint:"leave it blank if you don't want to change it",
                                 required: false,
                                 input_html: {autocomplete: "Do You wanto to change your name?"} %>
-                  <%= f.association :neighbourhood, 
-                                input_html: { class: "beautiful-dropdown" }, 
+                  <%= f.association :neighbourhood,
+                                input_html: { class: "beautiful-dropdown" },
                                 required: true,
                                 include_hidden: false %>
                     <%= f.input :email, required: true, autofocus: true %>
@@ -45,7 +45,7 @@
                     <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
                     </div>
                   </div>
-               # 
+               #
               <% end %>
           <div class="center-buttons">
             <div class="m-3"></div>
