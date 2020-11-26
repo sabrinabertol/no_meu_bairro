@@ -14,8 +14,8 @@
                               prompt: "Choose a neighbourhood!"  %>
             <%= f.input :description %>
             <%= f.input :phone %>
-            <%= f.input :opentime %>
-            <%= f.input :closetime %>
+            <%= f.input :opentime, as: :time, html5:true %>
+            <%= f.input :closetime, as: :time, html5:true %>
             <%= f.input :website %>
             <%= f.input :category %>
             <div class="center-buttons">
