@@ -48,6 +48,7 @@ gem 'open-uri'
 gem 'nokogiri'
 gem 'pry-byebug'
 gem 'haml', '~> 5.0', '>= 5.0.4'
+gem 'pagy', '~> 3.5' # omit patch digit and use the latest if possible
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

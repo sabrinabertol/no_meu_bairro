@@ -1,39 +1,24 @@
 <header class="scroll">
   <nav>
-    <div class="d-flex flex-direction-row">
+    <div class="d-flex flex-direction-row m-2">
 
-       <button class="btn-category">
-        <div class="circle-icon">
-          <i class="fas fa-store"></i>
-        </div>
+        <%= link_to neighbourhood_services_path(@neighbourhood, :query => "Retalho") do %> 
+          <div class="circle-icon">
+            <i class="fas fa-store"></i>
+          </div>
+        <% end %>
 
-      <button class="btn-category">
-        <div class="circle-icon">
-          <i class="fas fa-utensils"></i>
-        </div>
+        <%= link_to neighbourhood_services_path(@neighbourhood, :query => "Restauração e Bebidas") do %> 
+          <div class="circle-icon">
+            <i class="fas fa-store"></i>
+          </div>
+        <% end %>
 
-      </button>
-
-      <button class="btn-category">
-        <div class="circle-icon">
-          <i class="fas fa-landmark "></i>
-        </div>
-
-      </button>
-
-      <button class="btn-category">
-        <div class="circle-icon">
-          <i class="fas fa-store"></i>
-        </div>
-
-      </button>
-
-      <button class="btn-category">
-        <div class="circle-icon">
-          <i class="fas fa-utensils"></i>
-        </div>
-
-      </button>
+       <%= link_to neighbourhood_services_path(@neighbourhood, :query => "Lojas") do %> 
+          <div class="circle-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+        <% end %>
 
     </div>
   </nav>
@@ -43,3 +28,5 @@
       <%#= link_to neighbourhood_services_path(category: Neighbourhood.service.find_by(category: "Retalho")), class: "btn-category circle-icon" do %>
         <%#= icon('fas', 'store') %>
      <%# end %>
+
+

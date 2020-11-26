@@ -6,11 +6,13 @@ require "pry-byebug"
 
 def destroy()
   puts "Destroying everything..."
-
+  Comment.destroy_all
+  Favourite.destroy_all
+  Post.destroy_all
+  Review.destroy_all
+  Service.destroy_all
   User.destroy_all
   Neighbourhood.destroy_all
-  Service.destroy_all
-  Review.destroy_all
 
   puts "All destroyed..."
 end
@@ -64,9 +66,16 @@ def create_services(bairro, name_ok)
     postal_code = "#{service[:COD_POST_4]}-#{service[:COD_POST_3]}"
 
     if bairro.include? postal_code 
+      
+      
+      categories = ['business','food','city','people','transport']
+      url = "http://lorempixel.com/1024/600/#{categories.sample}/#{rand(1..10)}"
+      file = URI.open(url)
+
+
 
       puts "+ #{service[:NOME]} - #{service[:MORADA]}, #{service[:NUM_POLICIA]}, #{service[:COD_POST_4]}-#{service[:COD_POST_3]} => #{service[:TIPO]}"
-      Service.create!(name: "#{service[:NOME]}",
+      service = Service.create!(name: "#{service[:NOME]}",
                             address:"#{service[:MORADA]}, #{service[:NUM_POLICIA]}, #{service[:COD_POST_4]}-#{service[:COD_POST_3]} ",
                             phone: 0000000,
                             latitude:"#{geo[:y]}",
@@ -74,8 +83,10 @@ def create_services(bairro, name_ok)
                             neighbourhood: Neighbourhood.find_by(name: name_ok),
                             category:"#{service[:TIPO]}",
                             user: User.first
-                            )
 
+                            )
+                            
+                            service.photos.attach(io: file, filename: "#{categories.sample}.png", content_type: 'image/png')
       create_reviews()  
     end
   end
