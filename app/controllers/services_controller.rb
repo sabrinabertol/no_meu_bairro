@@ -48,8 +48,8 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service.neighbourhood = @neighbourhood
     @service = Service.new(service_params)
+    @service.neighbourhood = @neighbourhood
     @service.user = current_user
     if @service.save
       redirect_to neighbourhood_service_path(@neighbourhood, @service), notice: "The service #{@service.name} was created successfully!"
@@ -88,7 +88,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    @service.neighbourhood = @neighbourhood
     params.require(:service).permit(
       :name, :address, :phone, :opentime, :closetime, :category, :latitude,
       :longitude, :website, :weekdays, :description, :favourite, photos: []
