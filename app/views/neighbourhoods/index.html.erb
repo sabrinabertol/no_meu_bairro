@@ -4,12 +4,19 @@
         <div>
           <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606232024/LOGO_as2up7.svg", height: 250) %>
         </div>
-        <h3 class="text-white-50 mx-auto mt-2 mb-3 homepage">Find services in your neighbourhood with one click!</h3>
+        <h3 class="text-white-50 mx-auto mt-4 mb-3 homepage">
+
+          Every service in<br>your neigbourhood, <br> in just a click! </h3>
+
         <div class="mt-4">
           <%= form_tag neighbourhoods_path(@neighbourhoods), method: :get %>
-          <%= collection_select :neighbourhood, :id, Neighbourhood.all.order(:name), :id, :name, {}, {  onchange: 'this.form.submit();' } %>
+          <%= collection_select :neighbourhood, :id, Neighbourhood.all.order(:name), :id, :name %>
+        </div>
+        <div class="mt-4">
+          <%= submit_tag "Choose a neighbourhood", class: 'btn btn-primary' %>        
         </div>
       </div>
     </div>
   </div>
 </header>
+
