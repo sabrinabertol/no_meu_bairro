@@ -1,8 +1,9 @@
-  <div class="postmessage">
 <div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-bordered" />
-
-
+  <% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+  <% else %>
+    <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", class: "avatar", width: 40, height: 40, crop: :fill) %>
+  <% end %>
   <div class="notification-content">
     <div class="d-flex justify-content-between">
       <div class="ml-3">
@@ -18,11 +19,6 @@
         <% end %>
       </div>
     </div >
-      <p style="font-size:12px" class="ml-3"><%= comment.comment %></p>
-    </div>
-
-
-</div>
-
-    </div>
+    <p style="font-size:12px" class="ml-3"><%= comment.comment %></p>
   </div>
+</div>

@@ -102,7 +102,10 @@
 }
 
 
-
+.card-product h5 {
+  font-size: 14px;
+  color:black;
+}
 
 
 
@@ -117,15 +120,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   border-radius: 5px;
-  img {
+  margin: 20px;
+
+}
+
+
+ .card-post img {
     height: 50px;
     width: 50px;
-    margin: 20px;
-    margin-top: 0;
-    margin-left: 0;
-
   }
-}
 
 
 .card-post h2 {
@@ -144,4 +147,21 @@
 
 .card-post-infos {
   padding: 16px;
+
 }
+
+
+
+
+
+
+.card-tripping {
+  background-color: white;
+  padding: 20px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
