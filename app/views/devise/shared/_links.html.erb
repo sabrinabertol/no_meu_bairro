@@ -1,7 +1,7 @@
 <%- if controller_name != 'sessions' %>
     <p>Already have an account?</p>
   <%= link_to new_session_path(resource_name) do %>
-    <button type="button" class="btn btn-outline-primary">Log in</button>
+    <button type="button" class="btn btn-outline-primary center-buttons">Log in</button>
   <% end %>
 <% end %>
   <br />
@@ -14,7 +14,7 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
 <p>Don't have an account yet?</p>
   <%= link_to new_registration_path(resource_name) do %>
-  <button type="button" class="btn btn-outline-primary mb-2">Register</button>
+  <button type="button" class="btn btn-outline-primary mb-2 center-buttons">Register</button>
   <% end %>
   <br />
 <% end %>

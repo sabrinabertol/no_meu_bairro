@@ -24,7 +24,7 @@
             </div>
           </div>
         <% end %>
-      <% end %>   
+      <% end %>
     </div>
   </div>
   <div id="map"
@@ -33,7 +33,6 @@
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <%= link_to "Announce your service", new_neighbourhood_service_path(@neighbourhood) %>
 </div>
 
 
@@ -56,4 +55,3 @@
   reloadPage();
 </script>
 
-     
