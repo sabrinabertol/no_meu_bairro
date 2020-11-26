@@ -1,52 +1,65 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-lg-6">
-        <div class="mt-3">
-          <h1>Posts</h1>
+        <div class="mt-3 mb-3">
+          <h2>Posts</h2>
            <%= link_to new_neighbourhood_post_path do %>
-             <div class="mt-3 mb-3 center-buttons">
+             <div class="mt-3 mb-3">
               <button type="button" class="btn btn-primary">New Post</button>
              </div>
            <% end %>
-           <h4>Recent posts</h4>
+           <h4 class="mt-3 mb-3">Recent posts</h4>
            <div>
              <% @posts.each do |post| %>
               <%= link_to neighbourhood_post_path(@neighbourhood, post) do %>
-               <div class="mt-2 card-post">
-                <% if post.user.photo.attached?  %>
-                <%= cl_image_tag post.user.photo.key, class: "avatar mb-2" %>
+               <div class="mt-2 mb-3 card-post">
+                <% if post.user.photo.attached? %>
+                  <div class="d-flex align-content-top m-3">
+
+                  <div>
+                    <%= cl_image_tag post.user.photo.key, class: "avatar" %>
+                  </div>
+                  <div class="notification-content">
+                    <h5>
+                      <%= post.title %>
+                    </h5>
+                    <p class="username">
+                      <%= post.user.name %>
+                    </p>
+                    <p style="color: black">
+                      <%= post.content %>
+                    </p>
+                    <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
+                  </div>
+                  </div>
+              <% else %>
+                <div>
+                  <img src='https://thispersondoesnotexist.com/image' class="avatar"/>
+                </div>
                 <div class="notification-content">
                   <h5>
                     <%= post.title %>
                   </h5>
-                  <p>
-                    <%= post.content %>
+                  <p class="username">
+                    <%= post.user.name %>
                   </p>
-                  <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
-                </div>
-              <% else %>
-                <img src='https://thispersondoesnotexist.com/image' class="avatar"/>
-                <div class="card-post-infos">
-                  <h5>
-                    <%= link_to post.title, neighbourhood_post_path(@neighbourhood, post) %>
-                  </h5>
                   <p style="color: black">
                     <%= post.content %>
                   </p>
                   <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
+                </div>
                 </div>
               <% end %>
               </div>
               <% end %>
             <% end %>
            </div>
-         <div class="center-buttons mt-3 mb-3">
+         <div class="center-buttons mt-5 mb-3">
            <%= link_to 'Back', 'javascript:history.back()' %>
          </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
