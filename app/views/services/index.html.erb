@@ -9,7 +9,8 @@
       <h1><%= @neighbourhood.name %></h1>
         <%= render "components/searchbar" %>
         <%= render "shared/category-buttons" %>
-      <% @services.each do |service| %>
+        <div id="list-services" class="d-none">
+        <% @services.each do |service| %>
         <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
             <div class="card-product mb-3">
              <% if service.photos.attached? %>
@@ -25,6 +26,10 @@
           </div>
         <% end %>
       <% end %>
+      <div class="d-flex justify-content-center">
+        <%= pagy_bootstrap_nav(@pagy) %>
+      </div>
+    </div>
     </div>
   </div>
   <div id="map"
