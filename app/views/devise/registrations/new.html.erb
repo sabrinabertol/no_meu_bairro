@@ -36,14 +36,14 @@
                                    collection: Neighbourhood.all.order(:name),
                                    prompt: "Choose a neighbourhood!" %>
                                    <div class="center-buttons">
-                                    <%= f.button :submit, "Register", class: "btn btn-primary mt-2 mb-4" %>
+                                    <%= f.button :submit, "Register", class: "btn btn-primary mt-2 mb-4 center-buttons" %>
                                   </div>
                                 </div>
                                 <% end %>
                                 <div class="center-buttons">
                                   <p class="mb-2">Already have an account?</p>
                                   <%= link_to new_session_path(resource_name) do %>
-                                    <button type="button" class="btn btn-outline-primary mt-0">Log in</button>
+                                    <button type="button" class="btn btn-outline-primary mt-0 center-buttons">Log in</button>
                                   <% end %>
                                   <div class="mt-4">
                                    <%= link_to 'Back', 'javascript:history.back()' %>
