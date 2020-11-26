@@ -15,7 +15,7 @@ class NeighbourhoodsController < ApplicationController
 
     @services = @neighbourhood.services
 
-    @pagy, @services = pagy(@services, items: 4) 
+    @pagy, @services = pagy(@services, items:4) 
 
     @markers = @services.geocoded.map do |service|
       {
