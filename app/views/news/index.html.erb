@@ -1,17 +1,21 @@
-
 <div class="container">
-  <div class="mt-4">
-    <h1 News </h1>
-  </div>
-  
-  <% @news.each do |new| %>
-      <div class="card-product mb-3">
-        <%= image_tag new.photourl %>
-          <div class="card-product-infos">
-            <h2> <%= new.title %> </h2>
-              <a href=<%= new.url %> target="_blank">info +</a> 
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-lg-6">
+        <h2 class="mt-4">Lisbon's Cultural Agenda</h2>
+      <div class="container mt-5">
+        <% @news.each do |new| %>
+            <div class="card-product mb-3">
+              <%= image_tag new.photourl %>
+                <div class="card-product-infos">
+                  <h5><%= new.title %></h5>
+                    <a href=<%= new.url %> target="_blank"><p>+ info</p></a>
+                </div>
+            </div>
+        <% end %>
       </div>
-  <% end %>
+      <div class="center-buttons mb-3">
+        <%= link_to 'Back', 'javascript:history.back()' %>
+      </div>
+    </div>
+  </div>
 </div>
-
