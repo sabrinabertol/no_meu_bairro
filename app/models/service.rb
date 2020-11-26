@@ -14,7 +14,7 @@ class Service < ApplicationRecord
   pg_search_scope :search_by_name_and_category,
     against: [ :name, :category ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 
   def favourite!
@@ -26,5 +26,4 @@ class Service < ApplicationRecord
     self.favourite = false
     self.save!
   end
-
 end

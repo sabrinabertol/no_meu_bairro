@@ -23,7 +23,7 @@
                         <% else %>
                         <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", width: 120, height: 120, crop: :fill) %>
                         <% end %>
-
+                  
                   <div class="card-product-infos">
                     <h2><%= service.name %></h2>
                     <p><%= service.category %></p>
@@ -41,9 +41,7 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
-
-
+  
 
 
 <script>

@@ -11,7 +11,7 @@
 # See https://github.com/heartcombo/simple_form#custom-components
 # to know more about custom components.
 # Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
-
+require 'pagy/extras/shared'
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   # Default class for buttons
@@ -425,6 +425,8 @@ SimpleForm.setup do |config|
     range:         :vertical_range,
     time:          :vertical_multi_select
   }
+
+  
 
   # enable custom form wrappers
   # config.wrapper_mappings = {

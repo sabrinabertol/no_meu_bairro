@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  include Pagy::Frontend
   def toggle_favourite(neighbourhood, service, current_user)
     # If the task has been favorited...
     if current_user.has_favourited?(service)
