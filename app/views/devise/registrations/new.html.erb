@@ -1,45 +1,58 @@
 <div class="masthead-user">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-6">
-          <div class="background-card mt-5">
-          <h2>Register</h2>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-6">
+        <div class="background-card">
+
+          <h2 class="mt-2 mb-4">Register</h2>
+
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= f.error_notification %>
-              <div class="form-inputs">
-                <%= f.input :email,
-                            required: true,
-                            autofocus: true,
-                            input_html: { autocomplete: "email" }%>
-                <%= f.association :neighbourhood, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
-                <%= f.input :password,
-                            required: true,
-                            hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                            input_html: { autocomplete: "new-password" } %>
-                <%= f.input :password_confirmation,
-                            required: true,
-                            input_html: { autocomplete: "new-password" } %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <div class="center-buttons">
+              <%= f.input :photo, as: :file,
+                required: false,
+                input_html: { class: 'd-none' },
+                label_html: { class: 'button-profile-photo avatar-large' },
+                label: 'Change profile photo!' %>
+            </div>
+            <%= f.input :name,
+              hint:"leave it blank if you don't want to change it",
+              required: false,
+              input_html: {autocomplete: "Do You wanto to change your name?"} %>
+            <%= f.input :email,
+              required: true,
+              autofocus: true,
+              input_html: { autocomplete: "email" }%>
+            <%= f.association :neighbourhood, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+            <%= f.input :password,
+              required: true,
+              hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+              input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+              required: true,
+              input_html: { autocomplete: "new-password" } %>
                 <%#= f.association :neighbourhood,
                                    collection: Neighbourhood.all.order(:name),
                                    prompt: "Choose a neighbourhood!" %>
-                <div class="center-buttons">
-                  <%= f.button :submit, "Register", class: "btn btn-primary mt-2 mb-4" %>
-                </div>
-              </div>
-          <% end %>
-          <div class="center-buttons">
-            <p class="mb-2">Already have an account?</p>
-            <%= link_to new_session_path(resource_name) do %>
-              <button type="button" class="btn btn-outline-primary mt-0">Log in</button>
-            <% end %>
-            <div class="mt-4">
-               <%= link_to 'Back', 'javascript:history.back()' %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+                                   <div class="center-buttons">
+                                    <%= f.button :submit, "Register", class: "btn btn-primary mt-2 mb-4" %>
+                                  </div>
+                                </div>
+                                <% end %>
+                                <div class="center-buttons">
+                                  <p class="mb-2">Already have an account?</p>
+                                  <%= link_to new_session_path(resource_name) do %>
+                                    <button type="button" class="btn btn-outline-primary mt-0">Log in</button>
+                                  <% end %>
+                                  <div class="mt-4">
+                                   <%= link_to 'Back', 'javascript:history.back()' %>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
 
 
