@@ -66,6 +66,7 @@
   width: 40px;
 }
 
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -97,5 +98,50 @@
 }
 
 .card-product .card-product-infos {
+  padding: 16px;
+}
+
+
+
+
+
+
+
+
+
+.card-post {
+  overflow: hidden;
+  min-height: 120px;
+  height: auto;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  border-radius: 5px;
+  img {
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+    margin-top: 0;
+    margin-left: 0;
+
+  }
+}
+
+
+.card-post h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-post p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-post-infos {
   padding: 16px;
 }

@@ -4,12 +4,10 @@
   margin-bottom: 8px;
   background: white;
   padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
 }
 
-.notification .notification-content {
+.notification-content {
   flex-grow: 1;
-  padding: 0 24px;
 }
 
 .notification p {
@@ -20,7 +18,6 @@
 
 .notification small {
   color: #999999;
-  font-weight: bold;
 }
 .notification .notification-actions {
   opacity: 0;
@@ -66,4 +63,5 @@
 .username {
   font-size: 10px;
   font-weight: bold;
+  color: black;
 }

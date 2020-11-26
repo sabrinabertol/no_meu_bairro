@@ -1,19 +1,28 @@
+  <div class="postmessage">
 <div class="notification">
   <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-bordered" />
+
+
   <div class="notification-content">
-    <p class="username mb-1"><small>Published at <%= time_ago_in_words(comment.created_at) %></small></p>
-    <p class="username mb-1"> <%= comment.user.email %> said: </p><p class="mb-1"> <%= comment.comment %><%= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %> <i class="fas fa-pencil-alt"></i></a>
-      <% end %> </p>
+    <div class="d-flex justify-content-between">
+      <div class="ml-3">
+        <p class="username mb-1"> <%= comment.user.name %> said: </p>
+        <p class="username mb-1"><small>Published at <%= time_ago_in_words(comment.created_at) %></small></p>
+      </div>
+      <div>
+        <%= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %>
+          <i class="fas fa-pencil-alt mr-0"></i>
+        <% end %>
+        <%= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
+          <i class="far fa-trash-alt ml-3"></i>
+        <% end %>
+      </div>
+    </div >
+      <p style="font-size:12px" class="ml-3"><%= comment.comment %></p>
     </div>
 
-    <div class="postmessage">
 
+</div>
 
-
-
-      <%= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
-      <i class="far fa-trash-alt"></i></a>
-      <% end %>
     </div>
   </div>
-  <hr>

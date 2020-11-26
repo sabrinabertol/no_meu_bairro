@@ -1,11 +1,10 @@
 .btn {
+  height: 50px;
+  min-width: 200px;
+  width: auto;
   border-radius: 28px;
   color: white;
-  padding-left: 25px;
-  padding-right: 25px;
-  min-width: 150px;
-  width: auto;
-  height: 40px;
+  padding: 0.75rem 25px 0.75rem 25px;
 }
 
 .btn-maplist {

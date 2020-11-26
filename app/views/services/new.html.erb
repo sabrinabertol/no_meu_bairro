@@ -9,19 +9,23 @@
           <%= simple_form_for [@neighbourhood, @service] do |f| %>
             <%= f.input :name %>
             <%= f.input :address, html: { id: :service_address } %>
+            <%#= f.association :neighbourhood,
+                              collection: Neighbourhood.all.order(:name),
+                              prompt: "Choose a neighbourhood!"  %>
             <%= f.input :description %>
             <%= f.input :phone %>
             <%= f.input :opentime %>
             <%= f.input :closetime %>
             <%= f.input :website %>
             <%= f.input :category %>
-            <%= f.input :photos, as: :file,  input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: 'Upload photos!' %>
-            <%= f.submit, class: "btn btn-primary mb-4" %>
+            <div class="center-buttons">
+            <%= f.input :photos, as: :file,  input_html: { class: 'd-none', multiple: true }, label_html: { class: 'btn btn-outline-primary mt-3'}, label: 'Upload photos!' %>
+            <%= f.button :submit, "Create service", class: "btn btn-primary mt-3 mb-4" %>
+            </div>
           <% end %>
-          <%= image_tag "", width: 200, class: "hidden", id: "photo-preview" %>
-         </div>
          <div class="mt-4 center-buttons mb-3">
              <%= link_to 'Back', 'javascript:history.back()' %>
+         </div>
          </div>
         </div>
       </div>

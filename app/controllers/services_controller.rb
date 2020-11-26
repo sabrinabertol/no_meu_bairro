@@ -37,7 +37,8 @@ class ServicesController < ApplicationController
     @markers =
       [{
         lat: @service.latitude,
-        lng: @service.longitude
+        lng: @service.longitude,
+        image_url: helpers.asset_url('location.png')
       }]
   end
 

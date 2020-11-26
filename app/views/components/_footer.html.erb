@@ -1,24 +1,27 @@
-    <div class="footer">
-      <ul ul class="list-inline">
+    <div class="footer" data-spy="affix">
+      <ul ul class="list-inline d-flex align-items-center">
         <%#= link_to neighbourhood_path(@neighbourhood) do %>
-          <li><i class="fal fa-search"></i></li>
+          <li><%= icon('fa', 'search') %></li>
+
+
         <%# end %>
 
-        <%#= link_to dashboard_path do %>
-          <li><i class="fal fa-home"></i></li>
+        <%#= link_to news_index_path do %>
+          <li><i class="far fa-newspaper"></i></li>
         <%# end %>
 
-        <%= link_to favourites_path do %>
+        <%#= link_to favourites_path do %>
         <li><i class='far fa-heart favourite'></i></li>
-        <% end %>
-
-
-        <%= link_to  edit_user_registration_path do %>
-          <li><i class="fal fa-user"></i></li>
-        <% end %>
-
-        <%#= link_to neighbourhood_posts_path(@neighbourhood) do %>
-        <li><i class="far fa-address-card"></i></li>
         <%# end %>
+
+
+        <%#= link_to edit_user_registration_path do %>
+        <%= icon('far', 'user') %>
+        <%# end %>
+
+
+        <%= link_to neighbourhood_posts_path(@neighbourhood, @posts) do %>
+        <li><i class="far fa-address-card"></i></li>
+        <% end %>
       </ul>
     </div>

@@ -1,2 +1,4 @@
-<h4><%= service.name %></h4>
-<p><%= service.address %></p>
+<%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+  <h4 class="mt-2"><%= service.name %></h4>
+  <p><%= service.address %></p>
+<% end %>
