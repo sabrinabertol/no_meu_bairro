@@ -29,9 +29,7 @@ class ServicesController < ApplicationController
       end
     end
 
-    @favourites = Favourite.all
-    
-
+  @favourites = Favourite.all
 
   end
 
