@@ -19,5 +19,4 @@ class PagesController < ApplicationController
     @favourites = current_user.favourites
     @neighbourhood = current_user.neighbourhood
   end
-
 end
