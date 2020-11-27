@@ -25,7 +25,7 @@
               <% end %>
                  <div class="card-product-infos">
 
-        
+
 
                     <h2><%= service.name %></h2>
                     <p><%= service.category %></p>
@@ -48,23 +48,3 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-
-
-
-<script>
-  function reloadPage() {
-  // The last "domLoading" Time //
-  var currentDocumentTimestamp =
-  new Date(performance.timing.domLoading).getTime();
-  // Current Time //
-  var now = Date.now();
-  // Ten Seconds //
-  var tenSec = 1000;
-  // Plus Ten Seconds //
-  var plusTenSec = currentDocumentTimestamp + tenSec;
-  if (now > plusTenSec) {
-  location.reload();
-  } else {}
-  }
-  reloadPage();
-</script>
