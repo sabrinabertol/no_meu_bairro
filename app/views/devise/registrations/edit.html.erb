@@ -22,6 +22,7 @@
               input_html: {autocomplete: "Do You wanto to change your name?"} %>
             <%= f.association :neighbourhood,
               input_html: { class: "beautiful-dropdown" },
+              :value => current_user.neighbourhood.name,
               required: true,
               include_hidden: false %>
             <%= f.input :email, required: true, autofocus: true %>

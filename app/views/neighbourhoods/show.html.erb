@@ -14,19 +14,24 @@
         <%= render "components/searchbar" %>
         <%= render "shared/category-buttons" %>
         <div id="list-services" class="d-none">
-         <% @services.each do |service| %>
+          <% @services.each do |service| %>
             <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
-              <div class="card-product mb-3">
-                <% if service.photos.attached? %>
-                  <%= cl_image_tag service.photos.first.key %>
-                    <% else %>
-                      <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", width: 120, height: 120, crop: :fill) %>
-                    <% end %>
-                  <div class="card-product-infos">
+
+            <div class="card-product mb-3">
+              <% if service.photos.attached? %>
+                <%= cl_image_tag service.photos.first.key %>
+              <% else %>
+                <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", width: 120, height: 120, crop: :fill) %>
+              <% end %>
+                 <div class="card-product-infos">
+
+        
+
                     <h2><%= service.name %></h2>
                     <p><%= service.category %></p>
                     <p><%= service.description %></p>
                   </div>
+
                </div>
             <% end %>
           <% end %>
