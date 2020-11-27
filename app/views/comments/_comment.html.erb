@@ -1,6 +1,6 @@
 <div class="notification">
-  <% if current_user.photo.attached? %>
-    <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+  <% if comment.user.photo.attached? %>
+    <%= cl_image_tag comment.user.photo.key, class: "avatar" %>
   <% else %>
     <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", class: "avatar", width: 40, height: 40, crop: :fill) %>
   <% end %>
