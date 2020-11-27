@@ -14,7 +14,6 @@
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </ul>
     </li>
-  </ul>
   <div>
   <% if current_user.photo.attached? %>
     <%= cl_image_tag current_user.photo.key, class: "avatar" %>
@@ -38,4 +37,6 @@
     <%= link_to "Register", new_user_registration_path %>
   </div>
   <% end %>
+  </ul>
+
 </nav>

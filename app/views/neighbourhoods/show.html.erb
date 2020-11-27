@@ -30,18 +30,18 @@
                </div>
             <% end %>
           <% end %>
-          <div class="center-buttons">
-            <%= pagy_bootstrap_nav(@pagy) %>
-          </div>
+<!--           <div class="center-buttons">
+            <%#= pagy_bootstrap_nav(@pagy) %>
+          </div> -->
       </div>
     </div>
   </div>
+</div>
   <div id="map"
-       style="width: 100%; height: 400px;"
+       style="width: 100%; height: 100%; position: fixed;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
 
 
 
