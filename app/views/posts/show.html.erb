@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-6">
-        <div class="mt-3 mb-3">
-          <div class="card-tripping p-3 mt-3">
+      <div class="mt-3 mb-3">
+        <div class="card-tripping p-3 mt-3">
 
-            <div class="notification-content">
-              <div class="d-flex justify-content-between align-items-center">
+          <div class="notification-content">
+            <div class="d-flex justify-content-between align-items-center">
               <div class="mt-2 mb-2">
                 <% if current_user.photo.attached? %>
-                  <%= cl_image_tag @post.current_user.photo.key, class: "avatar" %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar" %>
                 <% else %>
-                  <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", class: "avatar", width: 40, height: 40, crop: :fill) %>
+                <%= cl_image_tag("https://res.cloudinary.com/dyndl1bic/image/upload/v1606252899/nbr-02_prgan8.png", class: "avatar", width: 40, height: 40, crop: :fill) %>
                 <% end %>
               </div>
               <div>
@@ -21,27 +21,27 @@
                 <i class="far fa-trash-alt ml-3"></i>
                 <% end %>
               </div>
-              </div>
-
-                <h5>
-                  <%= @post.user.name %>
-                </h5>
-              <h3><%= @post.title %></h3>
-
-              <p><%= @post.content %></p>
-            <div class="small_text mb-2">This post has <%= @post.comments.count %> replies</div>
             </div>
-                    </div>
 
-          <div class="card-tripping p-3 mt-3">
+            <h5>
+              <%= @post.user.name %>
+            </h5>
+            <h3><%= @post.title %></h3>
+
+            <p><%= @post.content %></p>
+            <div class="small_text mb-2">This post has <%= @post.comments.count %> replies</div>
+          </div>
+        </div>
+
+        <div class="card-tripping p-3 mt-3">
 
           <div class="mt-3 mb-3">
             <%= render @post.comments %>
             <%= render "comments/form" %>
           </div>
-                    </div>
-
         </div>
+
+      </div>
     </div>
   </div>
 </div>
