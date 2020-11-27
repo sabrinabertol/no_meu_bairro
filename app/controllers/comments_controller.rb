@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment].permit(:comment))
+    @comment = Comment.new(comment: params[:comment][:comment], post: @post)
     @comment.user_id = current_user.id if current_user
-    @comment.save
 
     if @comment.save
-      redirect_to neighbourhood_posts_path(@post)
+      redirect_to neighbourhood_post_path(@post.neighbourhood, @post)
     else
       render 'new'
     end

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
 def create
     @post = current_user.posts.build(post_params)
+    byebug
     @post.user = current_user
     @neighbourhood = Neighbourhood.find(params[:neighbourhood_id])
     @post.neighbourhood = @neighbourhood

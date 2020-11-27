@@ -61,8 +61,13 @@
     <p class="mt-5"><%= @service.description %></p>
     <p><strong>Phone number:</strong> <%= @service.phone %></p>
     <p><strong>Website:</strong> <%= @service.website %></p>
+<% if @service.opentime %>
     <p><strong>Opening time:</strong> <%= @service.opentime.strftime("%H:%M") %></p>
+<% end %>
+<% if @service.closetime %>
     <p><strong>Closing time:</strong> <%= @service.closetime.strftime("%H:%M") %></p>
+<% end %>
+
   </div>
 
   <div>
