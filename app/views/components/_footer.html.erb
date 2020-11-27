@@ -3,7 +3,7 @@
 
 
                 <% if user_signed_in?  && current_user.neighbourhood %>
-          <%= link_to neighbourhood_services_path(current_user.neighbourhood) do %>
+          <%= link_to neighbourhood_path(current_user.neighbourhood) do %>
           <li><%= icon('fa', 'search') %></li>
           <% end %>
         <% else %>
