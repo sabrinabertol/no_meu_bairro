@@ -9,9 +9,6 @@
           </div>
           <% end %>
           <h4 class="mt-3 mb-3">Recent posts</h4>
-
-
-
           <div>
            <% @posts.each do |post| %>
            <%= link_to neighbourhood_post_path(@neighbourhood, post) do %>
@@ -34,11 +31,7 @@
                 <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
               </div>
             </div>
-
-
-
             <% else %>
-
             <div class="d-flex align-items-center">
               <div class="ml-3">
                 <img src='https://thispersondoesnotexist.com/image' class="avatar"/>
@@ -56,19 +49,9 @@
                 <p><small>Published at <%= time_ago_in_words(post.created_at) %></small></p>
               </div>
             </div>
-
-
           </div>
-
-
-
           <% end %>
         </div>
-
-
-
-
-
         <% end %>
         <% end %>
       </div>
