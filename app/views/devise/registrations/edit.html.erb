@@ -22,7 +22,7 @@
               input_html: {autocomplete: "Do You wanto to change your name?"} %>
             <%= f.association :neighbourhood,
               input_html: { class: "beautiful-dropdown" },
-              required: true,
+              required: false,
               include_hidden: false %>
             <%= f.input :email, required: true, autofocus: true %>
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
