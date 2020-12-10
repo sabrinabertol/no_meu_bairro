@@ -1,13 +1,13 @@
 <div class="form-inline" id="autocomplete">
-
-
-    <%= form_tag neighbourhood_services_path(@neighbourhood), method: :get, class: 'w-100 d-flex align-items-center' %>
-    <%= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Ex: Retail or Café do Manuel' %>
-
-    <%= button_tag(class: 'button-search p-2')  do %>
-     <%= icon('fa', 'search') %>
-    <% end %>
-
+  <%= form_tag neighbourhood_services_path(@neighbourhood), method: :get, class: 'w-100 d-flex align-items-center justify-content-between' %>
+  <%= text_field_tag :query, params[:query], class: 'form-control w-100', placeholder: 'Ex: Retail or Café do Manuel' %>
+  <%= button_tag(class: 'button-search p-2')  do %>
+    <%= icon('fa', 'search') %>
+  <% end %>
 </div>
-  <%#= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Ex: Retail or Café do Manuel', {}, {  onchange: 'this.form.submit();' } %>
 
+<%#= form_tag neighbourhood_services_path(@neighbourhood), method: :get do %>
+  <%#= text_field_tag :query, params[:query], class: "form-control" %>
+<%# end %>
+
+<%#= text_field_tag :query, params[:query], class: 'form-control', placeholder: 'Ex: Retail or Café do Manuel', {}, {  onchange: 'this.form.submit();' } %>
