@@ -38,9 +38,19 @@ import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
 
 document.addEventListener('turbolinks:load', () => {
+  showMap();
+  showList();
   initMapbox();
   initAutocomplete();
   initStarRating();
-  showMap();
-  showList();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Are you sure?",
+    text: "This action cannot be reversed",
+    icon: "warning"
+  }, (value) => {
+    if (value) {
+      const link = document.querySelector('#delete-link');
+      link.click();
+    }
+  });
 });

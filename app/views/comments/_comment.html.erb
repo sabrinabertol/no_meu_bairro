@@ -10,14 +10,18 @@
         <p class="username mb-1"> <%= comment.user.name %> said: </p>
         <p class="username mb-1"><small>Published at <%= time_ago_in_words(comment.created_at) %></small></p>
       </div>
-<!--       <div>
-        <%#= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %>
+      <% if current_user == comment.user %>
+        <div>
+        <%= link_to edit_neighbourhood_post_comment_path(comment.post,comment) do %>
           <i class="fas fa-pencil-alt mr-0"></i>
-        <%# end %>
-        <%#= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
+        <% end %>
+        <%= link_to [comment.post, comment], method: :delete, data: { confirm: "Are you sure you want to do this ?" } do %>
           <i class="far fa-trash-alt ml-3"></i>
-        <%# end %>
-      </div> -->
+        <% end %>
+      </div>
+      <% else %>
+      <div></div>
+      <% end %>
     </div >
     <p style="font-size:12px" class="ml-3"><%= comment.comment %></p>
   </div>

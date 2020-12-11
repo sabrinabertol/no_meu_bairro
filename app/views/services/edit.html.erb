@@ -1,37 +1,37 @@
 <div class="masthead-user">
   <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-12 col-lg-6">
-          <div class="background-card">
-            <h2>Edit service</h2>
-            <%= simple_form_for [@neighbourhood, @service] do |f| %>
-              <%= f.input :name %>
-              <%= f.input :address, html: { id: :service_address } %>
-              <%= f.input :description %>
-              <%= f.input :phone %>
-              <%= f.input :opentime %>
-              <%= f.input :closetime %>
-              <%= f.input :website %>
-              <%= f.input :photos, as: :file,
-                          required: false,
-                          input_html: { class: 'd-none', multiple: true },
-                          label_html: { class: 'btn btn-outline-primary center-buttons mt-3', style: 'width: 200px' },
-                          label: 'Add photos!' %>
-              <%= f.button :submit, "Update details", class: "btn btn-primary center-buttons mt-2" %>
-            <% end %>
-            <div class="m-4 center-buttons">
-              <%= link_to "Delete service",
-                          neighbourhood_service_path(@service),
-                          method: :delete,
-                          style: "color: #BB2205",
-                          data: { confirm: "Are you sure?" } %>
-            </div>
-                <div class="center-buttons mb-3">
-                  <%= link_to 'Back', 'javascript:history.back()' %>
-                </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-6">
+        <div class="background-card">
+          <h2>Edit service</h2>
+          <%= simple_form_for [@neighbourhood, @service] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :address, html: { id: :service_address } %>
+            <%= f.input :description %>
+            <%= f.input :phone %>
+            <%= f.input :opentime %>
+            <%= f.input :closetime %>
+            <%= f.input :website %>
+            <%= f.input :photos, as: :file,
+                        required: false,
+                        input_html: { class: 'd-none', multiple: true },
+                        label_html: { class: 'btn btn-outline-primary center-buttons mt-3', style: 'width: 200px' },
+                        label: 'Add photos!' %>
+            <%= f.button :submit, "Update details", class: "btn btn-primary center-buttons mt-2" %>
+          <% end %>
+          <div class="m-4 center-buttons">
+            <%= link_to "Delete service",
+                        neighbourhood_service_path(@service),
+                        method: :delete,
+                        input_html: { class: 'd-none', id: "sweet-alert-demo delete-link" },
+                        label_html: { class: 'btn btn-danger center-buttons mt-3', style: 'width: 200px' },
+                        data: { confirm: "Are you sure?" } %>
+          </div>
+          <div class="center-buttons mb-3">
+            <%= link_to 'Back', 'javascript:history.back()' %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= render 'components/footer' %>

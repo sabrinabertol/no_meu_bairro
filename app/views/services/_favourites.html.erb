@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <div id="favourite">
+    <% if current_user.has_favourited?(@service) %>
+      <%= link_to unfav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %>
+        <i class='fa fa-heart favourite' style="font-size: 24px"></i>
+      <% end %>
+      <% else %>
+      <%= link_to  fav_neighbourhood_service_path(@neighbourhood, @service), :method => :post do %>
+        <i class='far fa-heart' style="font-size: 24px"></i>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

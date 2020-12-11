@@ -5,7 +5,6 @@
           <div class="background-card mt-5">
           <h2>Create a service</h2>
           <p>Do you own a bussiness? Annouce in no meu bairro!</p>
-
           <%= simple_form_for [@neighbourhood, @service] do |f| %>
             <%= f.input :name %>
             <%= f.input :address, html: { id: :service_address } %>

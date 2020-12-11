@@ -18,6 +18,9 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
+      <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js"></script>
+      <link href="https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css" rel="stylesheet" />
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -27,8 +30,6 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
-      <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
 
   </head>
 
@@ -36,9 +37,8 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/navbar' %>
     <%= yield %>
-    <% if  user_signed_in?%>
-
-    <% #unless controller_path == "neighbourhoods" && action_name=="index" %>
+    <% if user_signed_in?%>
+    <%#unless controller_path == "neighbourhoods" && action_name=="index" %>
       <%= render "components/footer" %>
     <% end %>
   </body>
