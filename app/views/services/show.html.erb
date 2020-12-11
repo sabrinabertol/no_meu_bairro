@@ -61,8 +61,13 @@
     <p class="mt-5"><%= @service.description %></p>
     <p><strong>Phone number:</strong> <%= @service.phone %></p>
     <p><strong>Website:</strong> <%= @service.website %></p>
+<% if @service.opentime %>
     <p><strong>Opening time:</strong> <%= @service.opentime.strftime("%H:%M") %></p>
+<% end %>
+<% if @service.closetime %>
     <p><strong>Closing time:</strong> <%= @service.closetime.strftime("%H:%M") %></p>
+<% end %>
+
   </div>
 
   <div>
@@ -77,29 +82,21 @@
     <%= render 'reviews/new' %>
     <% end %>
   </div>
+
+
+<% if @service.reviews.present? %>
+
   <div class="mt-4">
     <%= render 'reviews/show' %>
   </div>
+<% end %>
+
+
+
   <div class="center-buttons mt-5 mb-5">
     <%= link_to 'Back', 'javascript:history.back()' %>
   </div>
 </div>
 </div>
 
-<script>
-  function reloadPage() {
-  // The last "domLoading" Time //
-  var currentDocumentTimestamp =
-  new Date(performance.timing.domLoading).getTime();
-  // Current Time //
-  var now = Date.now();
-  // Ten Seconds //
-  var tenSec = 1000;
-  // Plus Ten Seconds //
-  var plusTenSec = currentDocumentTimestamp + tenSec;
-  if (now > plusTenSec) {
-    location.reload();
-  } else {}
-}
-reloadPage();
-</script>
+

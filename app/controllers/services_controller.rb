@@ -2,10 +2,10 @@ class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show], raise: false
   before_action :set_neighbourhood
   before_action :set_service, only: [:show, :update, :edit, :destroy, :fav, :unfav]
-# 
+#
   def index
     if params[:query].present?
-      @services = Service.where(neighbourhood:@neighbourhood).search_by_name_and_category(params[:query])
+      @services = Service.where(neighbourhood: @neighbourhood).search_by_name_and_category(params[:query])
       @markers = @services.geocoded.map do |service|
         {
           lat: service.latitude,
