@@ -4,28 +4,28 @@
 
                 <% if user_signed_in?  && current_user.neighbourhood %>
           <%= link_to neighbourhood_path(current_user.neighbourhood) do %>
-          <li><%= icon('fa', 'search') %></li>
+          <li><i class="material-icons">search</i></li>
           <% end %>
         <% else %>
           <%= link_to neighbourhoods_path do %>
-          <li><%= icon('fa', 'search') %></li>
+          <li><i class="material-icons">search</i></li>
         <% end %>
         <% end %>
 
         <%= link_to news_index_path do %>
-          <li><i class="far fa-newspaper"></i></li>
+          <li><i class="material-icons">location_city</i></li>
         <% end %>
 
         <%= link_to favourites_path do %>
-        <li><i class='far fa-heart favourite'></i></li>
+        <li><i class="material-icons">favorite_border</i></li>
         <% end %>
         <% if user_signed_in?  && current_user.neighbourhood %>
           <%= link_to neighbourhood_posts_path(current_user.neighbourhood) do %>
-        <li><i class="far fa-address-card"></i></li>
+        <li><i class="material-icons">insert_comment</i></li>
           <% end %>
         <% else %>
           <%= link_to neighbourhoods_path do %>
-          <li><i class="far fa-address-card"></i></li>
+          <li><i class="material-icons">insert_comment</i></li>
         <% end %>
 
         <% end %>

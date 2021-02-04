@@ -1,21 +1,40 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-12 col-lg-6">
-      <div class="text-center d-flex flex-direction-row justify-content-around btn-maplist text-center center-buttons">
-       <div class="ml-4">
-          <span id="list-button">list</span>
-        </div>
-        <p>|</p>
-        <div class="mr-4">
-          <span id="map-button">map</span>
+      <div class="btn-maplist center-buttons mt-3 mb-3">
+        <span id="list-button">list</span>
+        <span id="map-button">map</span>
+      </div>
+      <div>
+        <button type="button" class="collapsible">
+          More options
+          <i class="fas fa-list"></i>
+        </button>
+        <div class="content mt-4">
+          <div class="mb-3 ml-4">
+            <h3><%= params[:query] %></h3>
+          </div>
+            <%= render "components/searchbar" %>
         </div>
       </div>
-      <h1><%= @neighbourhood.name %></h1>
-        <%= render "components/searchbar" %>
-        <%= render "shared/category-buttons" %>
-      <div id="list-services" class="d-none">
-        <% @services.each do |service| %>
-          <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
+        <div id="list-services">
+          <% @services.each do |service| %>
+            <%= link_to neighbourhood_service_path(@neighbourhood, service) do %>
               <div class="card-product mb-3">
                <% if service.photos.attached? %>
                 <%= cl_image_tag service.photos.first.key %>
@@ -30,18 +49,12 @@
             </div>
           <% end %>
         <% end %>
-
       </div>
-
     </div>
   </div>
 </div>
 <div id="map"
-     class="d-none"
-     style="width: 100%; height: 100%; position: fixed;"
+     style="width: 100%; height: 100%; position: fixed; "
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-
-
