@@ -5,6 +5,8 @@
 
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require jquery
+//= require materialize-sprockets
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -36,6 +38,8 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { showMap } from '../plugins/show_map';
 import { showList } from '../plugins/show_list';
+import { collapsible } from '../plugins/collapsible';
+
 
 document.addEventListener('turbolinks:load', () => {
   showMap();
@@ -43,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
+  collapsible();
   initSweetalert('#sweet-alert-demo', {
     title: "Are you sure?",
     text: "This action cannot be reversed",

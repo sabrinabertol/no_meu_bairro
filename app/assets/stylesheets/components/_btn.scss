@@ -1,12 +1,12 @@
 .btn {
-  height: 50px;
+  height: 35px;
   min-width: 200px;
   width: auto;
-  border-radius: 28px;
+  border-radius: 4px;
   color: white;
-  padding: 0.75rem 25px 0.75rem 25px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .btn-maplist {
@@ -18,6 +18,11 @@
   border-radius: 28px;
   margin: 20px;
   border: solid 1px #F6830F;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto auto;
+
 }
 
 .btn-block {
@@ -25,7 +30,7 @@
   color: white;
   padding-left: 25px;
   padding-right: 25px;
-  height: 40px;
+  height: 35px;
 }
 
 .btn-outline-primary {

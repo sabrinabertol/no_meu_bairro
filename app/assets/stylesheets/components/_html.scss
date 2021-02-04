@@ -13,11 +13,29 @@ body h3 {
   font-weight: 700;
 }
 
-.container {
-  margin-top: 50px;
+#container {
+  margin-top: 150px;
  }
 
+.container {
+  margin-top: 75px;
+}
 .homepage {
   font-family:"Raleway", "sans-serif";
   font-weight: 500;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+#map {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+#content {
+  position: absolute;
 }
